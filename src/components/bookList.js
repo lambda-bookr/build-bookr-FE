@@ -1,27 +1,37 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
 
-class BookList extends React.Component {
-	// componentDidMount() {
-	// 	this.props.getBooks();
-	// }
+import Book from './book';
 
-	render() {
-		return (
-			<div>
-				<ul>
-					TEST
-					{/* {this.props.books.map((book) => {
-						return <div key={book.name}>{book.name}</div>;
-					})} */}
-				</ul>
-			</div>
-		);
-	}
+class BookList extends Component {
+  render() {
+    return (
+      <div className="Books">
+        <h1>Sum books</h1>
+        <ul>
+          {this.props.books.map(books => {
+            return (
+              <div>
+<Book
+                name={books.name}
+                id={books.id}
+                age={books.age}
+                height={books.height}
+                key={books.id}
+              />
+              <form>
+              <button>delete</button>
+              </form>
+              </div>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
 }
 
-// const mapStateToProps = ({ books }) => ({
-// 	books
-// });
+Book.defaultProps = {
+ Book: [],
+};
 
-export default connect(null, {})(BookList);
+export default BookList;
