@@ -158,24 +158,24 @@ export const deleteBook = (id) => (dispatch) => {
 
 // REVIEW (s) actions
 
-export const getReviews = (id) => (dispatch) => {
-	dispatch({ type: FETCH_REVIEWS_START });
-	axios
-		.get(`https://bookr-backend.herokuapp.com/api/books/${id}/reviews`)
-		.then((res) => {
-			console.log('GET REVIEW LOG', res);
-			dispatch({
-				type: FETCH_REVIEWS_SUCCESS,
-				payload: res.data
-			});
-		})
-		.catch((err) => {
-			dispatch({
-				type: FETCH_REVIEWS_FAILURE,
-				payload: err.message
-			});
-		});
-};
+// export const getReviews = (id) => (dispatch) => {
+// 	dispatch({ type: FETCH_REVIEWS_START });
+// 	axios
+// 		.get(`https://bookr-backend.herokuapp.com/api/books/${id}/reviews`)
+// 		.then((res) => {
+// 			console.log('GET REVIEW LOG', res);
+// 			dispatch({
+// 				type: FETCH_REVIEWS_SUCCESS,
+// 				payload: res.data
+// 			});
+// 		})
+// 		.catch((err) => {
+// 			dispatch({
+// 				type: FETCH_REVIEWS_FAILURE,
+// 				payload: err.message
+// 			});
+// 		});
+// };
 
 export const addReview = (newReview) => (dispatch) => {
 	dispatch({ type: ADD_REVIEW_START });
