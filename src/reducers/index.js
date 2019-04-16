@@ -9,6 +9,8 @@ import {
 	LOGIN_SUCCESS,
 	LOGIN_FETCHING,
 	LOGIN_FAILURE,
+	LOGIN_OUT,
+	TOKEN_EXIST,
 	//register
 	REGISTER_SUCCESS,
 	REGISTER_FETCHING,
@@ -72,6 +74,17 @@ const reducer = (state = initialstate, action) => {
 				isfetching: false,
 				err: action.payload
 			};
+		case LOGIN_OUT:
+			return {
+				...state,
+				loggingIn: false
+			};
+		case TOKEN_EXIST:
+			return {
+				...state,
+				loggingIn: true
+			};
+
 		//book reducers
 		case FETCH_BOOKS_START:
 			return {
@@ -135,7 +148,7 @@ const reducer = (state = initialstate, action) => {
 				err: action.payload
 			};
 
-		//register reducers
+		// Register reducers
 		case REGISTER_FETCHING:
 			return {
 				...state,
@@ -155,8 +168,8 @@ const reducer = (state = initialstate, action) => {
 				isfetching: false,
 				err: action.payload
 			};
-		//still needs testing below
-		//review reducers
+
+		// Review reducers
 		case FETCH_REVIEWS_START:
 			return {
 				...state,
@@ -166,38 +179,37 @@ const reducer = (state = initialstate, action) => {
 		case FETCH_REVIEWS_SUCCESS:
 			return {
 				...state,
-				err: '',
 				isfetching: false,
-				reviews: [ ...action.payload ]
+				reviews: [ ...action.payload ],
+				err: ''
 			};
 		case FETCH_REVIEWS_FAILURE: {
 			return {
 				...state,
-				err: action.payload,
-				isfetching: false
+				isfetching: false,
+				err: action.payload
 			};
 		}
-		// case ADD_REVIEW_START:
-		// 	return {
-		// 		...state,
-		// 		loggingIn: false,
-		// 		isfetching: true,
-		// 		error: ''
-		// 	};
-		// case ADD_REVIEW_SUCCESS:
-		// 	return {
-		// 		...state,
-		// 		loggingIn: true,
-		// 		isfetching: false,
-		// 		error: ''
-		// 	};
-		// case ADD_REVIEW_FAILURE:
-		// 	return {
-		// 		...state,
-		// 		loggingIn: false,
-		// 		isfetching: false,
-		// 		err: action.payload
-		// 	};
+		//still needs testing below
+		case ADD_REVIEW_START:
+			return {
+				...state,
+				isfetching: true,
+				error: ''
+			};
+		case ADD_REVIEW_SUCCESS:
+			return {
+				...state,
+				isfetching: false,
+				reviews: [ ...action.payload ],
+				error: ''
+			};
+		case ADD_REVIEW_FAILURE:
+			return {
+				...state,
+				isfetching: false,
+				err: action.payload
+			};
 		// case DELETE_REVIEW_START:
 		// 	return {
 		// 		...state,

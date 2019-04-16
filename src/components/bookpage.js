@@ -22,7 +22,7 @@ class BookPage extends React.Component {
 					<li>{this.props.book.rating}</li>
 				</ul>
 				<button>Delete Book</button>
-				<ReviewList bookId={this.props.match.params.id} />
+				<ReviewList match={this.props.match} />
 			</div>
 		);
 	}

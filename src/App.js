@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { Route, NavLink, withRouter } from 'react-router-dom';
+import { Route, NavLink, withRouter, Redirect } from 'react-router-dom';
 import Footer from './components/footer';
 import BookPage from './components/bookpage';
 import Register from './components/loginRegister/register';
 import BookList from './components/bookList';
 import PrivateRoute from './components/privateRoute';
 import Login from './components/loginRegister/login';
+import ReviewForm from './components/reviewForm';
+import { tokenExist, logOut } from './actions';
 
 class App extends Component {
 	logOut = (e) => {
 		e.preventDefault();
 		localStorage.removeItem('token');
+		this.props.logOut();
 		this.props.history.push('/login');
 	};
+	componentDidMount() {
+		if (localStorage.getItem('token')) {
+			this.props.tokenExist();
+			console.log(tokenExist);
+		}
+	}
 
 	render() {
 		console.log('APP', this.props);
@@ -28,10 +37,14 @@ class App extends Component {
 						Log out
 					</button>
 				</div>
-				<Route path="/login" component={Login} />
+				<Route
+					path="/login"
+					render={(props) => (this.props.loggingIn ? <Redirect to="/protected" /> : <Login {...props} />)}
+				/>
 				<Route path="/register" component={Register} />
 				<PrivateRoute exact path="/protected" component={BookList} />
-				<PrivateRoute path="/protected/:id" component={BookPage} />
+				<PrivateRoute exact path="/protected/:id" component={BookPage} />
+				<Route path="/protected/:id/reviewform" component={ReviewForm} />
 				<Footer />
 			</div>
 		);
@@ -40,4 +53,4 @@ class App extends Component {
 const mapStateToProps = ({ loggingIn }) => ({
 	loggingIn
 });
-export default withRouter(connect(mapStateToProps, {})(App));
+export default withRouter(connect(mapStateToProps, { tokenExist, logOut })(App));
