@@ -27,9 +27,9 @@ export const FETCH_REVIEWS_START = 'FETCH_REVIEWS_START';
 export const FETCH_REVIEWS_SUCCESS = 'FETCH_REVIEWS_SUCCESS';
 export const FETCH_REVIEWS_FAILURE = 'FETCH_REVIEWS_FAILURE';
 //delete review
-export const DELETE_REVIEW_START = 'DELETE_REVIEWS_START'
-export const DELETE_REVIEW_SUCCESSFUL = 'DELETE_REVIEWS_SUCCESSFUL'
-export const DELETE_REVIEW_FAILURE = 'DELETE_REVIEWS_FAILURE'
+export const DELETE_REVIEW_START = 'DELETE_REVIEWS_START';
+export const DELETE_REVIEW_SUCCESSFUL = 'DELETE_REVIEWS_SUCCESSFUL';
+export const DELETE_REVIEW_FAILURE = 'DELETE_REVIEWS_FAILURE';
 //update review
 export const UPDATE_REVIEW_START = 'UPDATE_REVIEW_START';
 export const UPDATE_REVIEW_SUCCESS = 'UPDATE_REVIEW_SUCCESS';
@@ -45,7 +45,7 @@ export const FETCH_BOOK_FAILURE = 'FETCH_BOOK_FAILURE';
 
 //ACTION METHODS
 
-//Login/Registration actions
+// LOGIN/Registration actions
 export const loginSuccess = (cred) => (dispatch) => {
 	dispatch({ type: LOGIN_FETCHING });
 	return axios
@@ -87,7 +87,8 @@ export const registerSuccess = (cred) => (dispatch) => {
 			});
 		});
 };
-//Book Actions
+
+// Book (s) actions
 export const getBooks = () => (dispatch) => {
 	dispatch({ type: FETCH_BOOKS_START });
 	axios
@@ -130,7 +131,7 @@ export const deleteBook = (id) => (dispatch) => {
 	axios
 		.get(`https://bookr-backend.herokuapp.com/api/books/${id}`)
 		.then((res) => {
-			console.log('DELETE REVIEW LOG',res);
+			console.log('DELETE REVIEW LOG', res);
 			dispatch({
 				type: DELETE_BOOK_SUCCESS,
 				payload: res.data
@@ -144,14 +145,14 @@ export const deleteBook = (id) => (dispatch) => {
 		});
 };
 
-//SERVER DOWN TEST IN MORNING
-//review Actions
-export const getReviews = () => (dispatch) => {
+// REVIEW (s) actions
+
+export const getReviews = (id) => (dispatch) => {
 	dispatch({ type: FETCH_REVIEWS_START });
 	axios
-		.get('https://bookr-backend.herokuapp.com/api/books/id/reviews')
+		.get(`https://bookr-backend.herokuapp.com/api/books/${id}/reviews`)
 		.then((res) => {
-			console.log('GET REVIEW LOG',res);
+			console.log('GET REVIEW LOG', res);
 			dispatch({
 				type: FETCH_REVIEWS_SUCCESS,
 				payload: res.data
@@ -170,7 +171,7 @@ export const addReview = () => (dispatch) => {
 	return axios
 		.post('https://bookr-backend.herokuapp.com/api/reviews')
 		.then((res) => {
-			console.log('ADD REVIEW LOG', res)
+			console.log('ADD REVIEW LOG', res);
 			dispatch({
 				type: ADD_REVIEW_SUCCESS,
 				payload: res.data
@@ -185,13 +186,12 @@ export const addReview = () => (dispatch) => {
 		});
 };
 
-
 export const deleteReview = (id) => (dispatch) => {
 	dispatch({ type: DELETE_REVIEW_START });
 	axios
 		.get(`https://bookr-backend.herokuapp.com/api/reviews/${id}`)
 		.then((res) => {
-			console.log('DELETE REVIEW LOG',res);
+			console.log('DELETE REVIEW LOG', res);
 			dispatch({
 				type: DELETE_REVIEW_SUCCESSFUL,
 				payload: res.data
@@ -210,7 +210,7 @@ export const updateReview = (id) => (dispatch) => {
 	axios
 		.get(`https://bookr-backend.herokuapp.com/api/reviews/${id}`)
 		.then((res) => {
-			console.log('UPDATE REVIEW LOG',res);
+			console.log('UPDATE REVIEW LOG', res);
 			dispatch({
 				type: UPDATE_REVIEW_SUCCESS,
 				payload: res.data
