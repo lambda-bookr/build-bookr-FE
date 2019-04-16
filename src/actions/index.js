@@ -223,4 +223,3 @@ export const updateReview = (id) => (dispatch) => {
 			});
 		});
 };
-
