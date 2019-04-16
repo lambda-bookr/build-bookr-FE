@@ -11,7 +11,7 @@ class BookPage extends React.Component {
 		console.log('BOOK PAGE', this.props);
 		return (
 			<div className="Book">
-				<h3 className="Book-Title">{this.props.book.name}</h3>
+				<h3 className="Book-Title">{this.props.book.title}</h3>
 				<img src={this.props.book.imageURL} alt="Book" />
 				<div className="Book-Info">
 					<li>{this.props.book.author}</li>
