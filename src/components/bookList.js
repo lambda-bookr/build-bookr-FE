@@ -1,37 +1,39 @@
-import React, { Component } from 'react';
-
+import React from 'react';
+import { connect } from 'react-redux';
+import { getBooks } from '../actions';
 import Book from './book';
+import { Link } from 'react-router-dom';
 
-class BookList extends Component {
-  render() {
-    return (
-      <div className="Books">
-        <h1>Sum books</h1>
-        <ul>
-          {this.props.books.map(books => {
-            return (
-              <div>
-<Book
-                name={books.name}
-                id={books.id}
-                age={books.age}
-                height={books.height}
-                key={books.id}
-              />
-              <form>
-              <button>delete</button>
-              </form>
-              </div>
-            );
-          })}
-        </ul>
-      </div>
-    );
-  }
+class BookList extends React.Component {
+	componentDidMount() {
+		this.props.getBooks();
+	}
+
+	render() {
+		return (
+			<div>
+				{this.props.books.map((book) => {
+					return (
+						<Link to={`/protected/${book.id}`} key={book.id}>
+							<Book
+								name={book.name}
+								imageURL={book.imageURL}
+								author={book.author}
+								price={book.price}
+								publisher={book.publisher}
+								description={book.description}
+								key={book.id}
+							/>
+						</Link>
+					);
+				})}
+			</div>
+		);
+	}
 }
 
-Book.defaultProps = {
- Book: [],
-};
+const mapStateToProps = ({ books }) => ({
+	books
+});
 
-export default BookList;
+export default connect(mapStateToProps, { getBooks })(BookList);

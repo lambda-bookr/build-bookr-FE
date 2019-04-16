@@ -5,16 +5,19 @@ const Book = props =>{
         <div className='Book'>
         <h3 className='Book-Title'>{props.name}</h3>
         <img src='{props.imageURL}' alt='Book '></img>
-        <div classname="Book-Info">
+        <div className="Book-Info">
         <li>{props.author}</li>
         <li>{props.price}</li>
         <li>{props.publisher}</li>
         <li>{props.description}</li>
         <li>{props.user_id}</li>
+          
+            
+            
 
         
         </div>
-
+        <button>delete</button>
         </div>
     )
 }
