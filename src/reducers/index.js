@@ -9,11 +9,15 @@ import {
 	LOGIN_FAILURE,
 	REGISTER_SUCCESS,
 	REGISTER_FETCHING,
-	REGISTER_FAILURE
+	REGISTER_FAILURE,
+	FETCH_BOOK_START,
+	FETCH_BOOK_SUCCESS,
+	FETCH_BOOK_FAILURE
 } from '../actions';
 
 const initialstate = {
 	books: [],
+	book: {},
 	fetchingBooks: false,
 	loggingIn: false,
 	isfetching: false,
@@ -57,6 +61,26 @@ const reducer = (state = initialstate, action) => {
 				books: [ ...action.payload ]
 			};
 		case FETCH_BOOKS_FAILURE: {
+			return {
+				...state,
+				err: action.payload,
+				isfetching: false
+			};
+		}
+		case FETCH_BOOK_START:
+			return {
+				...state,
+				err: '',
+				fetchingBooks: true
+			};
+		case FETCH_BOOK_SUCCESS:
+			return {
+				...state,
+				err: '',
+				isfetching: false,
+				book: { ...action.payload }
+			};
+		case FETCH_BOOK_FAILURE: {
 			return {
 				...state,
 				err: action.payload,
