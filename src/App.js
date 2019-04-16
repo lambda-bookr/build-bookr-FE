@@ -21,18 +21,16 @@ class App extends Component {
 	componentDidMount() {
 		if (localStorage.getItem('token')) {
 			this.props.tokenExist();
-			console.log(tokenExist);
 		}
 	}
 
 	render() {
-		console.log('APP', this.props);
 		return (
 			<div className="App">
 				<div className="NavLinks">
 					<NavLink to="/login">Login</NavLink>
 					<NavLink to="/register">Register</NavLink>
-					<NavLink to="/">Home</NavLink>
+					<NavLink to="https://bookr-marketing.netlify.com/">Home</NavLink>
 					<button className={this.props.loggingIn ? 'loginOutBtn' : 'displayNone'} onClick={this.logOut}>
 						Log out
 					</button>
