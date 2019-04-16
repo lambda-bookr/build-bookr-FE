@@ -1,9 +1,10 @@
+
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { Route, NavLink, withRouter } from 'react-router-dom';
 // import Footer from './components/footer';
-import BookPage from './components/bookpage';
+import BookPage from './components/bookPage';
 import Register from './components/loginRegister/register';
 import BookList from './components/bookList';
 import PrivateRoute from './components/privateRoute';
@@ -28,6 +29,7 @@ class App extends Component {
 						Log out
 					</button>
 				</div>
+				
 				<Route path="/login" component={Login} />
 				<Route path="/register" component={Register} />
 				<PrivateRoute exact path="/protected" component={BookList} />
