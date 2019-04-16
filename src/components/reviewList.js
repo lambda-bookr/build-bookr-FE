@@ -2,29 +2,32 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getReviews } from '../actions';
 import Review from './review';
-import { Link } from 'react-router-dom';
 
 class ReviewList extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 	componentDidMount() {
-		this.props.getReviews();
+		this.props.getReviews(this.props.bookId);
 	}
 
 	render() {
 		return (
 			<div>
-				{this.props.review.map((review) => {
+				{this.props.reviews.map((review) => {
 					return (
-						<Link to={`/protected/${review.id}`} key={review.id}>
+						<div key={review.id}>
 							<Review
-								review={review.review}
+								username={review.username}
+								review={review}
+								id={review.id}
 								rating={review.rating}
-								book_id={review.book_id}
-								user_id={review.user_id}
-								key={review.id}
+								thumbnailUrl={review.thumbnailUrl}
 							/>
-						</Link>
+						</div>
 					);
 				})}
+				<button> Add Review</button>
 			</div>
 		);
 	}

@@ -44,7 +44,8 @@ const initialstate = {
 	fetchingBooks: false,
 	loggingIn: false,
 	isfetching: false,
-	error: null
+	error: null,
+	reviews: []
 };
 
 const reducer = (state = initialstate, action) => {
@@ -71,7 +72,7 @@ const reducer = (state = initialstate, action) => {
 				isfetching: false,
 				err: action.payload
 			};
-			//book reducers
+		//book reducers
 		case FETCH_BOOKS_START:
 			return {
 				...state,
@@ -113,27 +114,27 @@ const reducer = (state = initialstate, action) => {
 			};
 		}
 		case DELETE_BOOK_START:
-		return {
-			...state,
-			loggingIn: false,
-			isfetching: true,
-			error: ''
-		};
-	case DELETE_BOOK_SUCCESS:
-		return {
-			...state,
-			loggingIn: true,
-			isfetching: false,
-			error: ''
-		};
-	case DELETE_BOOK_FAILURE:
-		return {
-			...state,
-			loggingIn: false,
-			isfetching: false,
-			err: action.payload
-		};
-		
+			return {
+				...state,
+				loggingIn: false,
+				isfetching: true,
+				error: ''
+			};
+		case DELETE_BOOK_SUCCESS:
+			return {
+				...state,
+				loggingIn: true,
+				isfetching: false,
+				error: ''
+			};
+		case DELETE_BOOK_FAILURE:
+			return {
+				...state,
+				loggingIn: false,
+				isfetching: false,
+				err: action.payload
+			};
+
 		//register reducers
 		case REGISTER_FETCHING:
 			return {
@@ -154,9 +155,9 @@ const reducer = (state = initialstate, action) => {
 				isfetching: false,
 				err: action.payload
 			};
-//still needs testing below
-			//review reducers 
-			case FETCH_REVIEWS_START:
+		//still needs testing below
+		//review reducers
+		case FETCH_REVIEWS_START:
 			return {
 				...state,
 				err: '',
@@ -167,7 +168,7 @@ const reducer = (state = initialstate, action) => {
 				...state,
 				err: '',
 				isfetching: false,
-				book: { ...action.payload }
+				reviews: [ ...action.payload ]
 			};
 		case FETCH_REVIEWS_FAILURE: {
 			return {
@@ -176,77 +177,72 @@ const reducer = (state = initialstate, action) => {
 				isfetching: false
 			};
 		}
-		case ADD_REVIEW_START:
-		return {
-			...state,
-			loggingIn: false,
-			isfetching: true,
-			error: ''
-		};
-	case ADD_REVIEW_SUCCESS:
-		return {
-			...state,
-			loggingIn: true,
-			isfetching: false,
-			error: ''
-		};
-	case ADD_REVIEW_FAILURE:
-		return {
-			...state,
-			loggingIn: false,
-			isfetching: false,
-			err: action.payload
-		};
-		case DELETE_REVIEW_START:
-		return {
-			...state,
-			loggingIn: false,
-			isfetching: true,
-			error: ''
-		};
-	case DELETE_REVIEW_SUCCESSFUL:
-		return {
-			...state,
-			loggingIn: true,
-			isfetching: false,
-			error: ''
-		};
-	case DELETE_REVIEW_FAILURE:
-		return {
-			...state,
-			loggingIn: false,
-			isfetching: false,
-			err: action.payload
-		};
-		case UPDATE_REVIEW_START:
-		return {
-			...state,
-			loggingIn: false,
-			isfetching: true,
-			error: ''
-		};
-	case UPDATE_REVIEW_SUCCESS:
-		return {
-			...state,
-			loggingIn: true,
-			isfetching: false,
-			error: ''
-		};
-	case UPDATE_REVIEW_FAILURE:
-		return {
-			...state,
-			loggingIn: false,
-			isfetching: false,
-			err: action.payload
-		};
-
-
-
+		// case ADD_REVIEW_START:
+		// 	return {
+		// 		...state,
+		// 		loggingIn: false,
+		// 		isfetching: true,
+		// 		error: ''
+		// 	};
+		// case ADD_REVIEW_SUCCESS:
+		// 	return {
+		// 		...state,
+		// 		loggingIn: true,
+		// 		isfetching: false,
+		// 		error: ''
+		// 	};
+		// case ADD_REVIEW_FAILURE:
+		// 	return {
+		// 		...state,
+		// 		loggingIn: false,
+		// 		isfetching: false,
+		// 		err: action.payload
+		// 	};
+		// case DELETE_REVIEW_START:
+		// 	return {
+		// 		...state,
+		// 		loggingIn: false,
+		// 		isfetching: true,
+		// 		error: ''
+		// 	};
+		// case DELETE_REVIEW_SUCCESSFUL:
+		// 	return {
+		// 		...state,
+		// 		loggingIn: true,
+		// 		isfetching: false,
+		// 		error: ''
+		// 	};
+		// case DELETE_REVIEW_FAILURE:
+		// 	return {
+		// 		...state,
+		// 		loggingIn: false,
+		// 		isfetching: false,
+		// 		err: action.payload
+		// 	};
+		// case UPDATE_REVIEW_START:
+		// 	return {
+		// 		...state,
+		// 		loggingIn: false,
+		// 		isfetching: true,
+		// 		error: ''
+		// 	};
+		// case UPDATE_REVIEW_SUCCESS:
+		// 	return {
+		// 		...state,
+		// 		loggingIn: true,
+		// 		isfetching: false,
+		// 		error: ''
+		// 	};
+		// case UPDATE_REVIEW_FAILURE:
+		// 	return {
+		// 		...state,
+		// 		loggingIn: false,
+		// 		isfetching: false,
+		// 		err: action.payload
+		// 	};
 		default:
 			return state;
 	}
-	
-	
 };
 
 export default reducer;

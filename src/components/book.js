@@ -4,7 +4,7 @@ const Book = (props) => {
 	return (
 		<div className="Book">
 			<h3 className="BookTitle">{props.name}</h3>
-			<img src={props.imageURL} alt="Book" />
+			<img src={props.imageURL} alt="Book Cover" />
 			<ul className="BookInfo">
 				<li>{props.author}</li>
 				<li>{props.price}</li>
