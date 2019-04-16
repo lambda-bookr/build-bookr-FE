@@ -36,6 +36,7 @@ class Login extends React.Component {
 	};
 
 	render() {
+		console.log('LOGIN COMP', this.props.loggingIn);
 		return (
 			<div className="loginPage">
 				<form onSubmit={this.handleLogin}>

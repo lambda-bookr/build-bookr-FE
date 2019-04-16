@@ -7,8 +7,8 @@ class Register extends React.Component {
 	state = {
 		registerCred: {
 			username: '',
-			firstname: '',
-			lastname: '',
+			firstName: '',
+			lastName: '',
 			password: ''
 		}
 	};
@@ -42,16 +42,16 @@ class Register extends React.Component {
 					<input
 						type="text"
 						placeholder="firstname"
-						name="firstname"
+						name="firstName"
 						onChange={this.handleChange}
-						value={this.state.registerCred.firstname}
+						value={this.state.registerCred.firstName}
 					/>
 					<input
 						type="text"
 						placeholder="lastname"
-						name="lastname"
+						name="lastName"
 						onChange={this.handleChange}
-						value={this.state.registerCred.lastname}
+						value={this.state.registerCred.lastName}
 					/>
 					<input
 						type="password"

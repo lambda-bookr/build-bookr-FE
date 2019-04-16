@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getReviews } from '../actions';
 import Review from './review';
+import { Link } from 'react-router-dom';
 
 class ReviewList extends React.Component {
 	constructor(props) {
@@ -12,6 +13,7 @@ class ReviewList extends React.Component {
 	}
 
 	render() {
+		console.log(this.props.match);
 		return (
 			<div>
 				{this.props.reviews.map((review) => {
@@ -27,7 +29,7 @@ class ReviewList extends React.Component {
 						</div>
 					);
 				})}
-				<button> Add Review</button>
+				<Link to={`${this.props.match.url}/reviewform`}>Add Review</Link>
 			</div>
 		);
 	}

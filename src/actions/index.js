@@ -10,6 +10,8 @@ export const FETCH_BOOKS_FAILURE = 'FETCH_BOOKS_FAILURE';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FETCHING = 'LOGIN_FETCHING';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+export const LOGIN_OUT = 'LOGIN_OUT';
+export const TOKEN_EXIST = 'TOKEN_EXIST';
 //add book
 export const ADD_BOOK_START = 'ADD_BOOK_START';
 export const ADD_BOOK_SUCCESS = 'ADD_BOOK_SUCCESS';
@@ -65,6 +67,14 @@ export const loginSuccess = (cred) => (dispatch) => {
 				payload: err.message
 			});
 		});
+};
+
+export const tokenExist = () => (dispatch) => {
+	dispatch({ type: TOKEN_EXIST });
+};
+
+export const logOut = () => (dispatch) => {
+	dispatch({ type: LOGIN_OUT });
 };
 
 export const registerSuccess = (cred) => (dispatch) => {
@@ -126,6 +136,7 @@ export const getBookPage = (id) => (dispatch) => {
 			});
 		});
 };
+
 export const deleteBook = (id) => (dispatch) => {
 	dispatch({ type: DELETE_BOOK_START });
 	axios
@@ -166,10 +177,10 @@ export const getReviews = (id) => (dispatch) => {
 		});
 };
 
-export const addReview = () => (dispatch) => {
+export const addReview = (newReview) => (dispatch) => {
 	dispatch({ type: ADD_REVIEW_START });
 	return axios
-		.post('https://bookr-backend.herokuapp.com/api/reviews')
+		.post('https://bookr-backend.herokuapp.com/api/reviews', newReview)
 		.then((res) => {
 			console.log('ADD REVIEW LOG', res);
 			dispatch({
