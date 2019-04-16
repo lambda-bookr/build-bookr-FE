@@ -30,9 +30,9 @@ class App extends Component {
 		return (
 			<div className="App">
 				<div className="NavLinks">
-					<NavLink to="/login">Login</NavLink>
-					<NavLink to="/register">Register</NavLink>
-					<NavLink to="/">Home</NavLink>
+					<NavLink className='NavLink' to="/login">Login</NavLink>
+					<NavLink className='NavLink'  to="/register">Register</NavLink>
+					<NavLink className='NavLink' to="/">Home</NavLink>
 					<button className={this.props.loggingIn ? 'loginOutBtn' : 'displayNone'} onClick={this.logOut}>
 						Log out
 					</button>

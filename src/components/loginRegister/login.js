@@ -38,8 +38,11 @@ class Login extends React.Component {
 	render() {
 		console.log('LOGIN COMP', this.props.loggingIn);
 		return (
-			<div className="loginPage">
-				<form onSubmit={this.handleLogin}>
+			<div className="Login-Page">
+				<form 
+				className="login-form"
+			    onSubmit={this.handleLogin}>
+				<h1>Login</h1>
 					<input
 						type="text"
 						placeholder="username"

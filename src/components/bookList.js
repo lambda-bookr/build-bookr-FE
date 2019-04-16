@@ -11,10 +11,10 @@ class BookList extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className='Book-Flex'>
 				{this.props.books.map((book) => {
 					return (
-						<Link to={`/protected/${book.id}`} key={book.id}>
+						<Link className='book-link' to={`/protected/${book.id}`} key={book.id}>
 							<Book
 								name={book.title}
 								imageURL={book.imageURL}

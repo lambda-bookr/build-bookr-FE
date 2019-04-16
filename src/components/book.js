@@ -2,9 +2,11 @@ import React from 'react';
 
 const Book = (props) => {
 	return (
-		<div className="Book">
-			<h3 className="BookTitle">{props.name}</h3>
-			<img src={props.imageURL} alt="Book Cover" />
+		<div className="Books">
+         <div className='Book-Top'>
+          <h3 className="BookTitle">{props.name}</h3>
+		  <img src={props.imageURL} alt="Book Cover" />
+         </div>
 			<ul className="BookInfo">
 				<li>{props.author}</li>
 				<li>{props.price}</li>
