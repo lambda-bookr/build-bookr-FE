@@ -148,6 +148,9 @@ button{
 	cursor: pointer;
 	
 }
+button:hover{
+	background:forestgreen;
+}
 body{
 	background:whitesmoke;
 }
@@ -169,23 +172,44 @@ h3{
 	height:90px;
 	position: sticky;
 	top:0;
+	z-index: 1;
 	
 }
 .Link{
 	text-decoration: none;
 	color:whitesmoke;
-	background:red;
+	background:#CD871B;
 	padding:5px 50px 5px 50px;
 	margin-top:25px;
 	border-radius:5px; 
 
 }
-.NavLink{
+.nav-link a.active {
+	text-shadow: 2px 1px forestgreen;
+	background:darkseagreen;
+	
+}
+.nav-link a{
 	text-decoration:none;
 	color:whitesmoke;
 	background:forestgreen;
 	padding:5px 25px 5px 25px;
 	border-radius:5px;
+	margin-right:10px;
+}
+.nav-link a:hover{
+	
+	background:#CD871B;
+}
+/* .NavLink{
+	text-decoration:none;
+	color:whitesmoke;
+	background:forestgreen;
+	padding:5px 25px 5px 25px;
+	border-radius:5px;
+} */
+.NavLink .active{
+	box-shadow: 5px 10px;
 }
 .book-link{
 	text-decoration:none;

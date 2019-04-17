@@ -15,7 +15,7 @@ deleteBook = () => {
 	render() {
 		return (
 			<div className="Book">
-		<button className='Delete-Book' onClick={this.deleteBook}>Delete Book</button>
+		
 				<h3 className="BookTitle">{this.props.book.title}</h3>
 				<img src={this.props.book.imageUrl} alt="Book" />
 				<ul className="BookInfo">
