@@ -13,7 +13,6 @@ class BookPage extends React.Component {
 		this.props.history.push('/protected');
 	};
 	render() {
-		console.log('BOOK PAGE', this.props.book.id);
 		return (
 			<div className="Book">
 				<h3 className="BookTitle">{this.props.book.title}</h3>

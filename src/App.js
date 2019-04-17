@@ -15,6 +15,7 @@ class App extends Component {
 	logOut = (e) => {
 		e.preventDefault();
 		localStorage.removeItem('token');
+		localStorage.removeItem('userID');
 		this.props.logOut();
 		this.props.history.push('/login');
 	};
@@ -30,7 +31,7 @@ class App extends Component {
 				<div className="NavLinks">
 					<NavLink to="/login">Login</NavLink>
 					<NavLink to="/register">Register</NavLink>
-					<NavLink to="https://bookr-marketing.netlify.com/">Home</NavLink>
+					<NavLink to="/protected">Home</NavLink>
 					<button className={this.props.loggingIn ? 'loginOutBtn' : 'displayNone'} onClick={this.logOut}>
 						Log out
 					</button>

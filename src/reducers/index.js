@@ -201,7 +201,7 @@ const reducer = (state = initialstate, action) => {
 			return {
 				...state,
 				isfetching: false,
-				reviews: [ ...action.payload ],
+				reviews: [ ...state.reviews, { ...action.payload } ],
 				error: ''
 			};
 		case ADD_REVIEW_FAILURE:

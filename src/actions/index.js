@@ -54,6 +54,7 @@ export const loginSuccess = (cred) => (dispatch) => {
 		.post('https://bookr-backend.herokuapp.com/api/auth/login', cred)
 		.then((res) => {
 			localStorage.setItem('token', res.data.token);
+			localStorage.setItem('userID', res.data.userID);
 			dispatch({
 				type: LOGIN_SUCCESS,
 				payload: res.data.token
@@ -82,6 +83,7 @@ export const registerSuccess = (cred) => (dispatch) => {
 		.post('https://bookr-backend.herokuapp.com/api/auth/register', cred)
 		.then((res) => {
 			localStorage.setItem('token', res.data.token);
+			localStorage.setItem('userID', res.data.userID);
 			dispatch({
 				type: REGISTER_SUCCESS,
 				payload: res.data.token
@@ -153,6 +155,27 @@ export const deleteBook = (id) => (dispatch) => {
 
 // REVIEW (s) actions
 
+export const addReview = (newReview) => (dispatch) => {
+	console.log(newReview);
+	dispatch({ type: ADD_REVIEW_START });
+	return axios
+		.post('https://bookr-backend.herokuapp.com/api/reviews', newReview)
+		.then((res) => {
+			console.log('ADD REVIEW LOG', res);
+			dispatch({
+				type: ADD_REVIEW_SUCCESS,
+				payload: res.data
+			});
+		})
+		.catch((err) => {
+			console.log(err);
+			dispatch({
+				type: ADD_REVIEW_FAILURE,
+				payload: err.message
+			});
+		});
+};
+
 // export const getReviews = (id) => (dispatch) => {
 // 	dispatch({ type: FETCH_REVIEWS_START });
 // 	axios
@@ -167,26 +190,6 @@ export const deleteBook = (id) => (dispatch) => {
 // 		.catch((err) => {
 // 			dispatch({
 // 				type: FETCH_REVIEWS_FAILURE,
-// 				payload: err.message
-// 			});
-// 		});
-// };
-
-// export const addReview = (newReview) => (dispatch) => {
-// 	dispatch({ type: ADD_REVIEW_START });
-// 	return axios
-// 		.post('https://bookr-backend.herokuapp.com/api/reviews', newReview)
-// 		.then((res) => {
-// 			console.log('ADD REVIEW LOG', res);
-// 			dispatch({
-// 				type: ADD_REVIEW_SUCCESS,
-// 				payload: res.data
-// 			});
-// 		})
-// 		.catch((err) => {
-// 			console.log(err);
-// 			dispatch({
-// 				type: ADD_REVIEW_FAILURE,
 // 				payload: err.message
 // 			});
 // 		});
