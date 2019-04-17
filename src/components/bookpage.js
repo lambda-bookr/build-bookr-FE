@@ -1,76 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getBookPage, deleteBook } from '../actions';
-import ReviewList from './reviewList';
-import StarRatingComponent from 'react-star-rating-component';
+import { getBookPage } from '../actions';
 
 class BookPage extends React.Component {
-	// constructor() {
-	// 	super();
-	// 	state: {
-	// 		showModule: false;
-	// 	}
-	// }
 	componentDidMount() {
-		if (Number(this.props.match.params.id) !== this.props.book.id) {
-			this.props.getBookPage(this.props.match.params.id);
-		}
+		this.props.getBookPage(this.props.match.params.id);
 	}
-	deleteBook = () => {
-		this.props.deleteBook(this.props.book.id);
-		this.props.history.push('/protected');
-	};
+
 	render() {
+		console.log('BOOK PAGE', this.props);
 		return (
 			<div className="Book">
-				<button className="Delete-Book" onClick={this.deleteBook}>
-					Delete Book
-				</button>
-				<h3 className="BookTitle">{this.props.book.title}</h3>
-				<img src={this.props.book.imageUrl} alt="Book" />
-				<ul className="BookInfo">
-					<li>Author: {this.props.book.author}</li>
-					<li>Price: $ {this.props.book.price}</li>
-					<li>Publisher:{this.props.book.publisher}</li>
-					<li>Synopsis:{this.props.book.description}</li>
-					{/* <li>Rating:{this.props.book.rating}</li> */}
-					<StarRatingComponent
-						className="Agg-Rating"
-						name="rating"
-						starCount={5}
-						editing={false}
-						value={this.props.book.rating}
-					/>
-				</ul>
-
-				<div className="Review-Wrapper">
-					<ReviewList className="Review-Page" match={this.props.match} reviewList={this.props.book.reviews} />
+				<h3 className="Book-Title">{this.props.book.name}</h3>
+				<img src={this.props.book.imageURL} alt="Book" />
+				<div className="Book-Info">
+					<li>{this.props.book.author}</li>
+					<li>{this.props.book.price}</li>
+					<li>{this.props.book.publisher}</li>
+					<li>{this.props.book.description}</li>
+					<li>{this.props.book.user_id}</li>
 				</div>
-
-				<button onClick={this.deleteBook}>Delete Book</button>
-				{/* <div className="">
-					<p>Are you sure?</p>
-					<button onClick={this.deleteBook}>Delete Book</button>
-					<button>Cancel</button>
-				</div> */}
-				<ReviewList match={this.props.match} reviewList={this.props.book.reviews} />
+				<button>Delete</button>
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = ({ book, isfetching }) => ({
-	book,
-	isfetching
+const mapStateToProps = ({ book }) => ({
+	book
 });
 
-export default connect(mapStateToProps, { getBookPage, deleteBook })(BookPage);
-
-//    border: 2px solid red;
-// position: absolute;
-// left: 50%;
-// top: 50%;
-// width: 500px;
-// height: 400px;
-// background: grey;
-// transform: translate(-50%, -50%);
+export default connect(mapStateToProps, { getBookPage })(BookPage);
