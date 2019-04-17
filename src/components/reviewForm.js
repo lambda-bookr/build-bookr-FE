@@ -15,6 +15,9 @@ class ReviewForm extends Component {
 	onStarClick(nextValue, prevValue, name) {
 		this.setState({ rating: nextValue });
 	}
+	
+	
+
 	handleInputChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
@@ -43,20 +46,22 @@ class ReviewForm extends Component {
 						name="review"
 						required
 					/>
-					<input
+					{/* <input
 						onChange={this.handleInputChange}
 						placeholder="rating"
 						type="number"
 						value={this.state.rating}
 						name="rating"
 						required
-					/>
+					/> */}
+					{/* <p>{this.state.rating}</p> */}
 					<StarRatingComponent
 						onStarClick={this.onStarClick.bind(this)}
 						className="Star-Rating"
 						name="Rating"
 						starCount={5}
 						value={this.state.rating}
+						
 					/>
 					<button>Add Review</button>
 				</form>
