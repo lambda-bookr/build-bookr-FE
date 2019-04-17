@@ -30,12 +30,15 @@ class App extends Component {
 		return (
 			<div className="App">
 				<div className="NavLinks">
+				{/* <img src='./images/logo.png' alt='logo'> </img> */}
 					<NavLink className='NavLink' to="/login">Login</NavLink>
 					<NavLink className='NavLink'  to="/register">Register</NavLink>
 					<NavLink className='NavLink' to="/">Home</NavLink>
 					<button className={this.props.loggingIn ? 'loginOutBtn' : 'displayNone'} onClick={this.logOut}>
 						Log out
 					</button>
+					<div className='Header-Image'>
+					</div>
 				</div>
 				<Route
 					path="/login"
