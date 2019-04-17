@@ -9,22 +9,19 @@ class ReviewList extends React.Component {
 	}
 
 	render() {
-		// console.log('TEST REVIEWS', this.props.reviews);
 		return (
 			<div>
 				{this.props.reviewList &&
 					this.props.reviewList.map((review) => {
-						console.log('REVIEW ID', review.id);
 						return (
-							<div key={review.id}>
-								<Review
-									username={review.username}
-									review={review}
-									id={review.id}
-									rating={review.rating}
-									thumbnailUrl={review.thumbnailUrl}
-								/>
-							</div>
+							<Review
+								username={review.username}
+								review={review}
+								id={review.id}
+								rating={review.rating}
+								thumbnailUrl={review.thumbnailUrl}
+								key={review.id}
+							/>
 						);
 					})}
 				<Link to={`${this.props.match.url}/reviewform`}>Add Review</Link>

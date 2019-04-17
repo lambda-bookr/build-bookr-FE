@@ -30,12 +30,16 @@ class App extends Component {
 			<div className="App">
 				<div className="NavLinks">
 					{!this.props.loggingIn && (
-						<div>
+						<div className="nav-link">
 							<NavLink to="/login">Login</NavLink>
 							<NavLink to="/register">Register</NavLink>
 						</div>
 					)}
-					{this.props.loggingIn && <NavLink to="/protected">Home</NavLink>}
+					{this.props.loggingIn && (
+						<div className="nav-link">
+							<NavLink to="/protected">Home</NavLink>
+						</div>
+					)}
 					<button className={this.props.loggingIn ? 'loginOutBtn' : 'displayNone'} onClick={this.logOut}>
 						Log out
 					</button>

@@ -37,3 +37,7 @@
 .displayNone {
 	display: none;
 }
+
+.nav-link a.active {
+	border: 2px solid red;
+}

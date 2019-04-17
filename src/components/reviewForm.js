@@ -16,7 +16,6 @@ class ReviewForm extends Component {
 		this.setState({
 			[e.target.name]: e.target.value
 		});
-		console.log(this.state);
 	};
 
 	submitNewReview = (e) => {
@@ -30,7 +29,6 @@ class ReviewForm extends Component {
 	};
 
 	render() {
-		console.log('Review Form', this.props);
 		return (
 			<div className="Review-Form-Wrapper">
 				<form onSubmit={this.submitNewReview}>

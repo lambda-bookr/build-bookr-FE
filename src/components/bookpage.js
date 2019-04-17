@@ -11,7 +11,7 @@ class BookPage extends React.Component {
 	// 	}
 	// }
 	componentDidMount() {
-		if (!this.props.isfetching) {
+		if (Number(this.props.match.params.id) !== this.props.book.id) {
 			this.props.getBookPage(this.props.match.params.id);
 		}
 	}
