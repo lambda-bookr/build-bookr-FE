@@ -129,9 +129,15 @@ button {
 	font-size: 15px;
 	border: none;
 	cursor: pointer;
+	outline:none;
 }
 button:hover{
 	background:forestgreen;
+	outline:none;
+}
+button:active {
+    outline: none;
+    border: none;
 }
 body{
 	background:whitesmoke;

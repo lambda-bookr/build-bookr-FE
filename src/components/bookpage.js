@@ -3,13 +3,18 @@ import { connect } from 'react-redux';
 import { getBookPage, deleteBook } from '../actions';
 import ReviewList from './reviewList';
 import StarRatingComponent from 'react-star-rating-component';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Button from '@material-ui/core/Button';
 
 class BookPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state= {
-			showModal: false,
-			triggerModal:false,
+			open:false
 		}
 	};
 
@@ -22,19 +27,43 @@ class BookPage extends React.Component {
 		this.props.deleteBook(this.props.book.id);
 		this.props.history.push('/protected');
 	};
+	handleClickOpen = () => {
+		this.setState({ open: true });
+	  };
+	
+	  handleClose = () => {
+		this.setState({ open: false });
+	  };
+
 	render() {
 		return (
 			<div className="Book">
 			
-				<button onClick={()=> (
-						this.state.showModal ?
-						this.deleteBook() : 
-						this.setState({
-							...this.state,
-							showModal:true
-						})
-						)
-					}>Delete Book</button>
+				
+			<Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
+          Delete Book
+        </Button>
+        <Dialog
+          open={this.state.open}
+          onClose={this.handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">{"Delete Book?"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+             Do you really want to delete this book?
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary">
+              Cancel
+            </Button>
+            <Button onClick={this.deleteBook} color="primary" autoFocus>
+              Delete
+            </Button>
+          </DialogActions>
+        </Dialog>
 				<h3 className="BookTitle">{this.props.book.title}</h3>
 				<img src={this.props.book.imageUrl} alt="Book" />
 				<ul className="BookInfo">
@@ -58,7 +87,7 @@ class BookPage extends React.Component {
 
 				
 				<div className="">
-					{this.state.showModal && alert('Are you sure?')}
+					{/* {this.state.showModal && alert('Are you sure?')}
 					<button onClick={()=> (
 						this.state.showModal ?
 						this.deleteBook : 
@@ -68,9 +97,9 @@ class BookPage extends React.Component {
 						})
 						)
 					}>Delete Book</button>
-					<button>Cancel</button>
+					<button>Cancel</button> */}
 				</div>
-				<ReviewList match={this.props.match} reviewList={this.props.book.reviews} />
+				{/* <ReviewList match={this.props.match} reviewList={this.props.book.reviews} /> */}
 			</div>
 		);
 	}
