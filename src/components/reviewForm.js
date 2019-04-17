@@ -22,13 +22,11 @@ class ReviewForm extends Component {
 	submitNewReview = (e) => {
 		e.preventDefault();
 		this.props.addReview(this.state);
-		this.props.history.push(`/protected/${this.props.match.params.id}`);
 		this.setState({
 			review: '',
-			rating: '',
-			book_id: this.props.match.params.id,
-			user_id: localStorage.getItem('userID')
+			rating: ''
 		});
+		this.props.history.push(`/protected/${this.props.match.params.id}`);
 	};
 
 	render() {
