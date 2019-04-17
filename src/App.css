@@ -130,8 +130,11 @@ button {
 	border: none;
 	cursor: pointer;
 }
-body {
-	background: whitesmoke;
+button:hover{
+	background:forestgreen;
+}
+body{
+	background:whitesmoke;
 }
 h2 {
 	margin-right: 15px;
@@ -150,28 +153,51 @@ h3 {
 	background-image: url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1753&q=80");
 	height: 90px;
 	position: sticky;
-	top: 0;
+	top:0;
+	z-index: 1;
+	
 }
 .Link {
 	text-decoration: none;
-	color: whitesmoke;
-	background: red;
-	padding: 5px 50px 5px 50px;
-	margin-top: 25px;
-	border-radius: 5px;
+	color:whitesmoke;
+	background:#CD871B;
+	padding:5px 50px 5px 50px;
+	margin-top:25px;
+	border-radius:5px; 
+
 }
-.NavLink {
-	text-decoration: none;
-	color: whitesmoke;
-	background: forestgreen;
-	padding: 5px 25px 5px 25px;
-	border-radius: 5px;
+.nav-link a.active {
+	text-shadow: 2px 1px forestgreen;
+	background:darkseagreen;
+	
 }
-.book-link {
-	text-decoration: none;
-	width: 30%;
-	display: flex;
-	align-items: center;
+.nav-link a{
+	text-decoration:none;
+	color:whitesmoke;
+	background:forestgreen;
+	padding:5px 25px 5px 25px;
+	border-radius:5px;
+	margin-right:10px;
+}
+.nav-link a:hover{
+	
+	background:#CD871B;
+}
+/* .NavLink{
+	text-decoration:none;
+	color:whitesmoke;
+	background:forestgreen;
+	padding:5px 25px 5px 25px;
+	border-radius:5px;
+} */
+.NavLink .active{
+	box-shadow: 5px 10px;
+}
+.book-link{
+	text-decoration:none;
+	width:30%;
+	display:flex;
+	align-items:center;
 	justify-content: center;
 }
 .Books {
@@ -270,9 +296,7 @@ h1 {
 	padding: 10px 85px 10px 85px;
 }
 
-.nav-link a.active {
-	border: 2px solid red;
-}
+
 .displayNone {
 	display: none;
 }
