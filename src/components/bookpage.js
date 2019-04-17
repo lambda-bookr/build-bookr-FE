@@ -71,7 +71,7 @@ class BookPage extends React.Component {
 					<li>Price: $ {this.props.book.price}</li>
 					<li>Publisher:{this.props.book.publisher}</li>
 					<li>Synopsis:{this.props.book.description}</li>
-					{/* <li>Rating:{this.props.book.rating}</li> */}
+				
 					<StarRatingComponent
 						className="Agg-Rating"
 						name="rating"

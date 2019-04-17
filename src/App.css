@@ -108,6 +108,12 @@ h4 {
 
 	margin-bottom: 45px;
 }
+.Book-Image {
+	width:300px;
+}
+.Cover-Image{
+	width:100%;
+}
 .Register-Wrapper {
 	background: #d9c9ae;
 	padding-bottom: 50px;
