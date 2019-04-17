@@ -43,14 +43,14 @@ class ReviewForm extends Component {
 						name="review"
 						required
 					/>
-					<input
+					{/* <input
 						onChange={this.handleInputChange}
 						placeholder="rating"
 						type="number"
 						value={this.state.rating}
 						name="rating"
 						required
-					/>
+					/> */}
 					<StarRatingComponent
 						onStarClick={this.onStarClick.bind(this)}
 						className="Star-Rating"
