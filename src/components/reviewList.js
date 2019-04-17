@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import Review from './review';
 import { Link } from 'react-router-dom';
@@ -10,10 +9,12 @@ class ReviewList extends React.Component {
 	}
 
 	render() {
+		// console.log('TEST REVIEWS', this.props.reviews);
 		return (
 			<div>
 				{this.props.reviewList &&
 					this.props.reviewList.map((review) => {
+						console.log('REVIEW ID', review.id);
 						return (
 							<div key={review.id}>
 								<Review
@@ -32,8 +33,4 @@ class ReviewList extends React.Component {
 	}
 }
 
-const mapStateToProps = ({ reviews }) => ({
-	reviews
-});
-
-export default connect(mapStateToProps, {})(ReviewList);
+export default ReviewList;

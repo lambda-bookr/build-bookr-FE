@@ -50,13 +50,6 @@ class ReviewForm extends Component {
 						name="rating"
 						required
 					/>
-					{/* <select onChange={this.handleInputChange} name="rating" value={this.state.rating}>
-						<option value={this.state.rating}>1</option>
-						<option value={this.state.rating}>2</option>
-						<option value={this.state.rating}>3</option>
-						<option value={this.state.rating}>4</option>
-						<option value={this.state.rating}>5</option>
-					</select> */}
 					<button>Add Review</button>
 				</form>
 			</div>
@@ -65,5 +58,3 @@ class ReviewForm extends Component {
 }
 
 export default connect(null, { addReview })(ReviewForm);
-
-// "/protected/:id/

@@ -4,8 +4,16 @@ import { getBookPage, deleteBook } from '../actions';
 import ReviewList from './reviewList';
 
 class BookPage extends React.Component {
+	// constructor() {
+	// 	super();
+	// 	state: {
+	// 		showModule: false;
+	// 	}
+	// }
 	componentDidMount() {
-		this.props.getBookPage(this.props.match.params.id);
+		if (!this.props.isfetching) {
+			this.props.getBookPage(this.props.match.params.id);
+		}
 	}
 
 	deleteBook = () => {
@@ -25,14 +33,29 @@ class BookPage extends React.Component {
 					<li>{this.props.book.rating}</li>
 				</ul>
 				<button onClick={this.deleteBook}>Delete Book</button>
+				{/* <div className="">
+					<p>Are you sure?</p>
+					<button onClick={this.deleteBook}>Delete Book</button>
+					<button>Cancel</button>
+				</div> */}
 				<ReviewList match={this.props.match} reviewList={this.props.book.reviews} />
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = ({ book }) => ({
-	book
+const mapStateToProps = ({ book, isfetching }) => ({
+	book,
+	isfetching
 });
 
 export default connect(mapStateToProps, { getBookPage, deleteBook })(BookPage);
+
+//    border: 2px solid red;
+// position: absolute;
+// left: 50%;
+// top: 50%;
+// width: 500px;
+// height: 400px;
+// background: grey;
+// transform: translate(-50%, -50%);
