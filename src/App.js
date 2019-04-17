@@ -35,6 +35,7 @@ class App extends Component {
 						<div>
 							<NavLink className='NavLink' to="/login">Login</NavLink>
 							<NavLink className='NavLink' to="/register">Register</NavLink>
+							<NavLink className='NavLink' to="/protected">Books</NavLink>
 						</div>
 					)}
 					{this.props.loggingIn && <NavLink className='NavLink' to="/protected">Home</NavLink>}
