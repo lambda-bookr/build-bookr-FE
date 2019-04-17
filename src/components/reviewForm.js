@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addReview } from '../actions';
+import StarRatingComponent from 'react-star-rating-component';
 class ReviewForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			review: '',
-			rating: '',
+			rating: 0,
 			book_id: this.props.match.params.id,
 			user_id: localStorage.getItem('userID')
 		};
 	}
-
+	onStarClick(nextValue, prevValue, name) {
+		this.setState({ rating: nextValue });
+	}
 	handleInputChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
@@ -23,7 +26,7 @@ class ReviewForm extends Component {
 		this.props.addReview(this.state);
 		this.setState({
 			review: '',
-			rating: ''
+			rating: 0
 		});
 		this.props.history.push(`/protected/${this.props.match.params.id}`);
 	};
@@ -47,6 +50,13 @@ class ReviewForm extends Component {
 						value={this.state.rating}
 						name="rating"
 						required
+					/>
+					<StarRatingComponent
+						onStarClick={this.onStarClick.bind(this)}
+						className="Star-Rating"
+						name="Rating"
+						starCount={5}
+						value={this.state.rating}
 					/>
 					<button>Add Review</button>
 				</form>

@@ -30,14 +30,20 @@ class App extends Component {
 			<div className="App">
 				<div className="NavLinks">
 					{!this.props.loggingIn && (
-						<div className="nav-link">
-							<NavLink to="/login">Login</NavLink>
-							<NavLink to="/register">Register</NavLink>
+						<div className="Nav-link">
+							<NavLink className="NavLink" to="/login">
+								Login
+							</NavLink>
+							<NavLink className="NavLink" to="/register">
+								Register
+							</NavLink>
 						</div>
 					)}
 					{this.props.loggingIn && (
-						<div className="nav-link">
-							<NavLink to="/protected">Home</NavLink>
+						<div className="Nav-link">
+							<NavLink className="NavLink" to="/protected">
+								Home
+							</NavLink>
 						</div>
 					)}
 					<button className={this.props.loggingIn ? 'loginOutBtn' : 'displayNone'} onClick={this.logOut}>
@@ -48,6 +54,8 @@ class App extends Component {
 					path="/login"
 					render={(props) => (this.props.loggingIn ? <Redirect to="/protected" /> : <Login {...props} />)}
 				/>
+				<h1>HELLO</h1>
+				{/* <Route exact path="/" component={LandingPage} /> */}
 				<Route path="/register" component={Register} />
 				<PrivateRoute exact path="/protected" component={BookList} />
 				<PrivateRoute exact path="/protected/:id" component={BookPage} />

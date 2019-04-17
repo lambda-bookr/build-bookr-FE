@@ -2,6 +2,7 @@ import React from 'react';
 
 import Review from './review';
 import { Link } from 'react-router-dom';
+import StarRatingComponent from 'react-star-rating-component';
 
 class ReviewList extends React.Component {
 	constructor(props) {
@@ -24,7 +25,9 @@ class ReviewList extends React.Component {
 							/>
 						);
 					})}
-				<Link to={`${this.props.match.url}/reviewform`}>Add Review</Link>
+				<Link className="Link" to={`${this.props.match.url}/reviewform`}>
+					Add Review
+				</Link>
 			</div>
 		);
 	}
