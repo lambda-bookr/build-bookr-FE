@@ -2,14 +2,24 @@ import React from 'react';
 
 const Review = (props) => {
 	return (
-		<div className="Review">
-			<div className="Review-Info">
-				<h4>{props.username}</h4>
-				<img src={props.thumbnailUrl} alt="user avatar" />
-				<button>{props.rating}</button>
-				<p>{props.review.review}</p>
+       
+        <div className="Review">
+        <h3 className='Review-Title'>Review:</h3>
+            <div className='Review-Top'>
+            <h4>{props.username}</h4>
+                <img 
+                className="Review-Image" 
+                src={props.thumbnailUrl} alt="useravatar"/>
+            </div>	
+            <div className='Review-Text'>
+            <p>{props.review.review}</p>
+            </div>
+				
+                {/* <button className='RatingsBtn'>{props.rating}</button> */}
 			</div>
-		</div>
+		
+        
+		
 	);
 };
 

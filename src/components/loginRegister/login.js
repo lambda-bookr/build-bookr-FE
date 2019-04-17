@@ -28,8 +28,11 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<div className="loginPage">
-				<form onSubmit={this.handleLogin}>
+			<div className="Login-Page">
+				<form 
+				className="login-form"
+			    onSubmit={this.handleLogin}>
+				<h1 className='Login-Title'>Login</h1>
 					<input
 						type="text"
 						placeholder="username"

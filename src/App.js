@@ -1,3 +1,5 @@
+
+    
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
@@ -31,11 +33,12 @@ class App extends Component {
 				<div className="NavLinks">
 					{!this.props.loggingIn && (
 						<div>
-							<NavLink to="/login">Login</NavLink>
-							<NavLink to="/register">Register</NavLink>
+							<NavLink className='NavLink' to="/login">Login</NavLink>
+							<NavLink className='NavLink' to="/register">Register</NavLink>
+							<NavLink className='NavLink' to="/protected">Books</NavLink>
 						</div>
 					)}
-					{this.props.loggingIn && <NavLink to="/protected">Home</NavLink>}
+					{this.props.loggingIn && <NavLink className='NavLink' to="/protected">Home</NavLink>}
 					<button className={this.props.loggingIn ? 'loginOutBtn' : 'displayNone'} onClick={this.logOut}>
 						Log out
 					</button>
