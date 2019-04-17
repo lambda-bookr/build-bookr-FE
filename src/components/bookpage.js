@@ -5,58 +5,72 @@ import ReviewList from './reviewList';
 import StarRatingComponent from 'react-star-rating-component';
 
 class BookPage extends React.Component {
+	// constructor() {
+	// 	super();
+	// 	state: {
+	// 		showModule: false;
+	// 	}
+	// }
 	componentDidMount() {
-		this.props.getBookPage(this.props.match.params.id);
+		if (Number(this.props.match.params.id) !== this.props.book.id) {
+			this.props.getBookPage(this.props.match.params.id);
+		}
 	}
-deleteBook = () => {
+	deleteBook = () => {
 		this.props.deleteBook(this.props.book.id);
 		this.props.history.push('/protected');
-}
+	};
 	render() {
 		return (
 			<div className="Book">
-		
+				<button className="Delete-Book" onClick={this.deleteBook}>
+					Delete Book
+				</button>
 				<h3 className="BookTitle">{this.props.book.title}</h3>
 				<img src={this.props.book.imageUrl} alt="Book" />
 				<ul className="BookInfo">
-				
-				
 					<li>Author: {this.props.book.author}</li>
 					<li>Price: $ {this.props.book.price}</li>
 					<li>Publisher:{this.props.book.publisher}</li>
 					<li>Synopsis:{this.props.book.description}</li>
 					{/* <li>Rating:{this.props.book.rating}</li> */}
-					<StarRatingComponent 
-						className='Agg-Rating'
+					<StarRatingComponent
+						className="Agg-Rating"
 						name="rating"
 						starCount={5}
 						editing={false}
 						value={this.props.book.rating}
 					/>
-					
-					
 				</ul>
-				
-				
-				<div className='Review-Wrapper'>
-				
-				
-				<ReviewList className='Review-Page' match={this.props.match} reviewList={this.props.book.reviews}/>
-				
-				
 
+				<div className="Review-Wrapper">
+					<ReviewList className="Review-Page" match={this.props.match} reviewList={this.props.book.reviews} />
 				</div>
-				
-			
+
 				<button onClick={this.deleteBook}>Delete Book</button>
-			
+				{/* <div className="">
+					<p>Are you sure?</p>
+					<button onClick={this.deleteBook}>Delete Book</button>
+					<button>Cancel</button>
+				</div> */}
+				<ReviewList match={this.props.match} reviewList={this.props.book.reviews} />
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = ({ book }) => ({
-	book
+const mapStateToProps = ({ book, isfetching }) => ({
+	book,
+	isfetching
 });
 
 export default connect(mapStateToProps, { getBookPage, deleteBook })(BookPage);
+
+//    border: 2px solid red;
+// position: absolute;
+// left: 50%;
+// top: 50%;
+// width: 500px;
+// height: 400px;
+// background: grey;
+// transform: translate(-50%, -50%);

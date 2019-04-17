@@ -7,19 +7,18 @@ class ReviewForm extends Component {
 		super(props);
 		this.state = {
 			review: '',
-			rating: '',
+			rating: 0,
 			book_id: this.props.match.params.id,
 			user_id: localStorage.getItem('userID')
 		};
 	}
 	onStarClick(nextValue, prevValue, name) {
-		this.setState({rating: nextValue});
-	  }
+		this.setState({ rating: nextValue });
+	}
 	handleInputChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		});
-		console.log(this.state);
 	};
 
 	submitNewReview = (e) => {
@@ -27,13 +26,12 @@ class ReviewForm extends Component {
 		this.props.addReview(this.state);
 		this.setState({
 			review: '',
-			rating: ''
+			rating: 0
 		});
 		this.props.history.push(`/protected/${this.props.match.params.id}`);
 	};
 
 	render() {
-		console.log('Review Form', this.props);
 		return (
 			<div className="Review-Form-Wrapper">
 				<form onSubmit={this.submitNewReview}>
@@ -53,20 +51,13 @@ class ReviewForm extends Component {
 						name="rating"
 						required
 					/>
-					<StarRatingComponent 
-					  onStarClick={this.onStarClick.bind(this)}
-								className='Star-Rating'
-								 name="Rating"
-								 starCount={5}
-								 value={this.state.rating}		
-									/>
-					{/* <select onChange={this.handleInputChange} name="rating" value={this.state.rating}>
-						<option value={this.state.rating}>1</option>
-						<option value={this.state.rating}>2</option>
-						<option value={this.state.rating}>3</option>
-						<option value={this.state.rating}>4</option>
-						<option value={this.state.rating}>5</option>
-					</select> */}
+					<StarRatingComponent
+						onStarClick={this.onStarClick.bind(this)}
+						className="Star-Rating"
+						name="Rating"
+						starCount={5}
+						value={this.state.rating}
+					/>
 					<button>Add Review</button>
 				</form>
 			</div>
@@ -75,5 +66,3 @@ class ReviewForm extends Component {
 }
 
 export default connect(null, { addReview })(ReviewForm);
-
-// "/protected/:id/

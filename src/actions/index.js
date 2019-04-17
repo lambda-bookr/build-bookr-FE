@@ -156,9 +156,8 @@ export const deleteBook = (id) => (dispatch) => {
 // REVIEW (s) actions
 
 export const addReview = (newReview) => (dispatch) => {
-	console.log(newReview);
 	dispatch({ type: ADD_REVIEW_START });
-	return axios
+	axios
 		.post('https://bookr-backend.herokuapp.com/api/reviews', newReview)
 		.then((res) => {
 			console.log('ADD REVIEW LOG', res);
@@ -171,6 +170,24 @@ export const addReview = (newReview) => (dispatch) => {
 			console.log(err);
 			dispatch({
 				type: ADD_REVIEW_FAILURE,
+				payload: err.message
+			});
+		});
+};
+export const updateReview = (updatedReview, id) => (dispatch) => {
+	dispatch({ type: UPDATE_REVIEW_START });
+	axios
+		.get(`https://bookr-backend.herokuapp.com/api/reviews/${id}`, updatedReview)
+		.then((res) => {
+			console.log('UPDATE REVIEW LOG', res);
+			dispatch({
+				type: UPDATE_REVIEW_SUCCESS,
+				payload: res.data
+			});
+		})
+		.catch((err) => {
+			dispatch({
+				type: UPDATE_REVIEW_FAILURE,
 				payload: err.message
 			});
 		});
@@ -209,25 +226,6 @@ export const addReview = (newReview) => (dispatch) => {
 // 		.catch((err) => {
 // 			dispatch({
 // 				type: DELETE_REVIEW_FAILURE,
-// 				payload: err.message
-// 			});
-// 		});
-// };
-
-// export const updateReview = (id) => (dispatch) => {
-// 	dispatch({ type: UPDATE_REVIEW_START });
-// 	axios
-// 		.get(`https://bookr-backend.herokuapp.com/api/reviews/${id}`)
-// 		.then((res) => {
-// 			console.log('UPDATE REVIEW LOG', res);
-// 			dispatch({
-// 				type: UPDATE_REVIEW_SUCCESS,
-// 				payload: res.data
-// 			});
-// 		})
-// 		.catch((err) => {
-// 			dispatch({
-// 				type: UPDATE_REVIEW_FAILURE,
 // 				payload: err.message
 // 			});
 // 		});
