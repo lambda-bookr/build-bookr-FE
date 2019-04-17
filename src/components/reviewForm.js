@@ -1,87 +1,75 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
+import { addReview } from '../actions';
 import StarRatingComponent from 'react-star-rating-component';
-
 class ReviewForm extends Component {
 	constructor(props) {
-	    super(props);
-	    this.state = {
-	        review: '',
-	        rating: '',
-	        book_id: '',
-			user_id:''
-	    }
+		super(props);
+		this.state = {
+			review: '',
+			rating: '',
+			book_id: this.props.match.params.id,
+			user_id: localStorage.getItem('userID')
+		};
 	}
 
-	submitChange = e => {
-	    e.preventDefault();
-	    this.props.addReview(this.state)
-	}
-	onStarClick = (nextValue, prevValue, name) =>{
+	handleInputChange = (e) => {
 		this.setState({
-			rating:nextValue
-		})
-		
-	}
+			[e.target.name]: e.target.value
+		});
+		console.log(this.state);
+	};
 
-	handleInputChange = e => {
-	    this.setState ({
-	        [e.target.name]: e.target.value
-	    })
-	}
+	submitNewReview = (e) => {
+		e.preventDefault();
+		this.props.addReview(this.state);
+		this.setState({
+			review: '',
+			rating: ''
+		});
+		this.props.history.push(`/protected/${this.props.match.params.id}`);
+	};
 
 	render() {
+		console.log('Review Form', this.props);
 		return (
-			
-			<div>
-<h1>Hello</h1>
-		
-		
-			
 			<div className="Review-Form-Wrapper">
-				<form onSubmit={this.submitChange}>
-					{/* <input
+				<form onSubmit={this.submitNewReview}>
+					<input
 						onChange={this.handleInputChange}
 						placeholder="review"
+						type="text"
 						value={this.state.review}
-						name="reivew"
+						name="review"
+						required
 					/>
-				
 					<input
 						onChange={this.handleInputChange}
-						placeholder="Book ID"
-						value={this.state.book_id}
-						name="book_id"
-					/>
-					
-					
-					<input
-						onChange={this.handleInputChange}
-						placeholder="User ID"
-						value={this.state.user_id}
-						name="user_id"
-					/>
-					<button type="submit">Add Review</button> */}
-					
-					<StarRatingComponent 
-						
+						placeholder="rating"
+						type="number"
+						value={this.state.rating}
 						name="rating"
-						starCount={5}
-						value={this.state.props.rating}
-						onStarClick={this.onStarClick.bind(this)}
+						required
 					/>
-					<br/>
-					<StarRatingComponent 
-						name="rating"
-						starCount={5}
-						// value={this.state.rating}
-						editing={false}
-					/>
-		  </form>
-			</div>
+					{/* <StarRatingComponent 
+					onStarClick={this.handleInputChange}
+								className='Star-Rating'
+								 name="Rating"
+								 starCount={5}
+								 value={this.state.rating}		
+									/> */}
+					{/* <select onChange={this.handleInputChange} name="rating" value={this.state.rating}>
+						<option value={this.state.rating}>1</option>
+						<option value={this.state.rating}>2</option>
+						<option value={this.state.rating}>3</option>
+						<option value={this.state.rating}>4</option>
+						<option value={this.state.rating}>5</option>
+					</select> */}
+					<button>Add Review</button>
+				</form>
 			</div>
 		);
 	}
 }
 
-export default ReviewForm;
+export default connect(null, { addReview })(ReviewForm);

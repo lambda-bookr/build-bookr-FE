@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getBookPage } from '../actions';
+import { getBookPage,deleteBook } from '../actions';
 import ReviewList from './reviewList';
 import StarRatingComponent from 'react-star-rating-component';
 
@@ -8,31 +8,37 @@ class BookPage extends React.Component {
 	componentDidMount() {
 		this.props.getBookPage(this.props.match.params.id);
 	}
-
+deleteBook = () => {
+		this.props.deleteBook(this.props.book.id);
+		this.props.history.push('/protected');
+}
 	render() {
 		console.log('BOOK PAGE', this.props);
 		return (
 			<div className="Book">
+		<button className='Delete-Book' onClick={this.deleteBook}>Delete Book</button>
 				<h3 className="BookTitle">{this.props.book.title}</h3>
-				<img src={this.props.book.imageURL} alt="Book" />
+				<img src={this.props.book.imageUrl} alt="Book" />
 				<ul className="BookInfo">
+				
+				
 					<li>Author: {this.props.book.author}</li>
 					<li>Price: $ {this.props.book.price}</li>
 					<li>Publisher:{this.props.book.publisher}</li>
 					<li>Synopsis:{this.props.book.description}</li>
 					{/* <li>Rating:{this.props.book.rating}</li> */}
 					<StarRatingComponent 
-						
+						className='Agg-Rating'
 						name="rating"
 						starCount={5}
-						editable={false}
+						editing={false}
 						value={this.props.book.rating}
-						
 					/>
 					
 					
 				</ul>
-				<button>Delete Book</button>
+				
+				
 				<div className='Review-Wrapper'>
 				
 				
@@ -52,4 +58,4 @@ const mapStateToProps = ({ book }) => ({
 	book
 });
 
-export default connect(mapStateToProps, { getBookPage })(BookPage);
+export default connect(mapStateToProps, { getBookPage, deleteBook })(BookPage);

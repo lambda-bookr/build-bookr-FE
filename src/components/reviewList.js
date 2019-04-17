@@ -29,6 +29,7 @@ class ReviewList extends React.Component {
 								className='Star-Rating'
 								 name="Rating"
 								 starCount={5}
+								 editing={false}
 								 value={review.rating}		
 									/>
 						
@@ -37,7 +38,7 @@ class ReviewList extends React.Component {
 							</div>
 						);
 					})}
-				<Link to={`${this.props.match.url}/reviewform`}>Add Review</Link>
+				<Link className='Link' to={`${this.props.match.url}/reviewform`}>Add Review</Link>
 			</div>
 		);
 	}

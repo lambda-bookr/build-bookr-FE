@@ -1,3 +1,5 @@
+
+    
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
@@ -15,31 +17,31 @@ class App extends Component {
 	logOut = (e) => {
 		e.preventDefault();
 		localStorage.removeItem('token');
+		localStorage.removeItem('userID');
 		this.props.logOut();
 		this.props.history.push('/login');
 	};
 	componentDidMount() {
 		if (localStorage.getItem('token')) {
 			this.props.tokenExist();
-			console.log(tokenExist);
 		}
 	}
 
 	render() {
-		console.log('APP', this.props);
 		return (
 			<div className="App">
 				<div className="NavLinks">
-				{/* <img src='./images/logo.png' alt='logo'> </img> */}
-					<NavLink className='NavLink' to="/login">Login</NavLink>
-					<NavLink className='NavLink'  to="/register">Register</NavLink>
-					<NavLink className='NavLink' to="/">Home</NavLink>
+					{!this.props.loggingIn && (
+						<div>
+							<NavLink className='NavLink' to="/login">Login</NavLink>
+							<NavLink className='NavLink' to="/register">Register</NavLink>
+						</div>
+					)}
+					{this.props.loggingIn && <NavLink className='NavLink' to="/protected">Home</NavLink>}
 					<button className={this.props.loggingIn ? 'loginOutBtn' : 'displayNone'} onClick={this.logOut}>
 						Log out
 					</button>
-					
-					</div>
-				
+				</div>
 				<Route
 					path="/login"
 					render={(props) => (this.props.loggingIn ? <Redirect to="/protected" /> : <Login {...props} />)}
@@ -50,7 +52,6 @@ class App extends Component {
 				<Route path="/protected/:id/reviewform" component={ReviewForm} />
 				<Footer />
 			</div>
-			
 		);
 	}
 }
