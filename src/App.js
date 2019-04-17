@@ -15,24 +15,27 @@ class App extends Component {
 	logOut = (e) => {
 		e.preventDefault();
 		localStorage.removeItem('token');
+		localStorage.removeItem('userID');
 		this.props.logOut();
 		this.props.history.push('/login');
 	};
 	componentDidMount() {
 		if (localStorage.getItem('token')) {
 			this.props.tokenExist();
-			console.log(tokenExist);
 		}
 	}
 
 	render() {
-		console.log('APP', this.props);
 		return (
 			<div className="App">
 				<div className="NavLinks">
-					<NavLink to="/login">Login</NavLink>
-					<NavLink to="/register">Register</NavLink>
-					<NavLink to="/">Home</NavLink>
+					{!this.props.loggingIn && (
+						<div>
+							<NavLink to="/login">Login</NavLink>
+							<NavLink to="/register">Register</NavLink>
+						</div>
+					)}
+					{this.props.loggingIn && <NavLink to="/protected">Home</NavLink>}
 					<button className={this.props.loggingIn ? 'loginOutBtn' : 'displayNone'} onClick={this.logOut}>
 						Log out
 					</button>

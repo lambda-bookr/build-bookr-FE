@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Review = (props) => {
-	console.log('REVIEW', props.review);
 	return (
 		<div className="Review">
 			<div className="Review-Info">
