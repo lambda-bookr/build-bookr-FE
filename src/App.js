@@ -37,9 +37,9 @@ class App extends Component {
 					<button className={this.props.loggingIn ? 'loginOutBtn' : 'displayNone'} onClick={this.logOut}>
 						Log out
 					</button>
-					<div className='Header-Image'>
+					
 					</div>
-				</div>
+				
 				<Route
 					path="/login"
 					render={(props) => (this.props.loggingIn ? <Redirect to="/protected" /> : <Login {...props} />)}
@@ -50,6 +50,7 @@ class App extends Component {
 				<Route path="/protected/:id/reviewform" component={ReviewForm} />
 				<Footer />
 			</div>
+			
 		);
 	}
 }

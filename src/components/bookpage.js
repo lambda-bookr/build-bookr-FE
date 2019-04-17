@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getBookPage } from '../actions';
 import ReviewList from './reviewList';
+import StarRatingComponent from 'react-star-rating-component';
 
 class BookPage extends React.Component {
 	componentDidMount() {
@@ -20,6 +21,14 @@ class BookPage extends React.Component {
 					<li>Publisher:{this.props.book.publisher}</li>
 					<li>Synopsis:{this.props.book.description}</li>
 					{/* <li>Rating:{this.props.book.rating}</li> */}
+					<StarRatingComponent 
+						
+						name="rating"
+						starCount={5}
+						editable={false}
+						value={this.props.book.rating}
+						
+					/>
 					
 					
 				</ul>
