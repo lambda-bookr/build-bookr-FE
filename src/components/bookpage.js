@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getBookPage } from '../actions';
 import ReviewList from './reviewList';
+import Rating from './rating'
 
 class BookPage extends React.Component {
 	componentDidMount() {
@@ -15,14 +16,24 @@ class BookPage extends React.Component {
 				<h3 className="BookTitle">{this.props.book.title}</h3>
 				<img src={this.props.book.imageURL} alt="Book" />
 				<ul className="BookInfo">
-					<li>{this.props.book.author}</li>
-					<li>{this.props.book.price}</li>
-					<li>{this.props.book.publisher}</li>
-					<li>{this.props.book.description}</li>
-					<li>{this.props.book.rating}</li>
+					<li>Author: {this.props.book.author}</li>
+					<li>Price: $ {this.props.book.price}</li>
+					<li>Publisher:{this.props.book.publisher}</li>
+					<li>Synopsis:{this.props.book.description}</li>
+					{/* <li>Rating:{this.props.book.rating}</li> */}
+					
+					
 				</ul>
 				<button>Delete Book</button>
-				<ReviewList match={this.props.match} reviewList={this.props.book.reviews} />
+				<div className='Review-Wrapper'>
+				
+				
+				<ReviewList className='Review-Page' match={this.props.match} reviewList={this.props.book.reviews}/>
+				
+
+				</div>
+				
+			
 			</div>
 		);
 	}

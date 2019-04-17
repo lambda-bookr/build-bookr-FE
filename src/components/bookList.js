@@ -17,7 +17,7 @@ class BookList extends React.Component {
 						<Link className='book-link' to={`/protected/${book.id}`} key={book.id}>
 							<Book
 								name={book.title}
-								imageURL={book.imageURL}
+								image_url={book.imageUrl}
 								author={book.author}
 								price={book.price}
 								publisher={book.publisher}

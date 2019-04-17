@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import Review from './review';
 import { Link } from 'react-router-dom';
+import StarRatingComponent from 'react-star-rating-component';
+
 
 class ReviewList extends React.Component {
 	constructor(props) {
@@ -24,6 +25,13 @@ class ReviewList extends React.Component {
 									rating={review.rating}
 									thumbnailUrl={review.thumbnailUrl}
 								/>
+								<StarRatingComponent 
+						name="rating"
+						starCount={5}
+						value={review.rating}
+						editing={false}
+					/>
+								
 							</div>
 						);
 					})}
