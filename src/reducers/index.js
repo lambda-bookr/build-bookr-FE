@@ -129,21 +129,21 @@ const reducer = (state = initialstate, action) => {
 		case DELETE_BOOK_START:
 			return {
 				...state,
-				loggingIn: false,
 				isfetching: true,
 				error: ''
 			};
 		case DELETE_BOOK_SUCCESS:
 			return {
 				...state,
-				loggingIn: true,
 				isfetching: false,
+				books: state.books.filter((book) => {
+					return book.id !== action.payload;
+				}),
 				error: ''
 			};
 		case DELETE_BOOK_FAILURE:
 			return {
 				...state,
-				loggingIn: false,
 				isfetching: false,
 				err: action.payload
 			};
@@ -201,7 +201,7 @@ const reducer = (state = initialstate, action) => {
 			return {
 				...state,
 				isfetching: false,
-				reviews: [ ...action.payload ],
+				reviews: [ ...state.reviews, { ...action.payload } ],
 				error: ''
 			};
 		case ADD_REVIEW_FAILURE:

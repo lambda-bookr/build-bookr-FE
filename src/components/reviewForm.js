@@ -75,3 +75,5 @@ class ReviewForm extends Component {
 }
 
 export default connect(null, { addReview })(ReviewForm);
+
+// "/protected/:id/

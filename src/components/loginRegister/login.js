@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Loader from 'react-loader-spinner';
 import { loginSuccess } from '../../actions';
-import { Redirect } from 'react-router-dom';
 
 class Login extends React.Component {
 	state = {
@@ -11,13 +9,6 @@ class Login extends React.Component {
 			password: ''
 		}
 	};
-
-	// componentDidMount() {
-	// 	console.log(this.props.match.url);
-	// 	if (this.props.loggingIn && this.props.match.url === '/login') {
-	// 		this.props.history.push('/protected');
-	// 	}
-	// }
 
 	handleChange = (e) => {
 		this.setState({
@@ -36,7 +27,6 @@ class Login extends React.Component {
 	};
 
 	render() {
-		console.log('LOGIN COMP', this.props.loggingIn);
 		return (
 			<div className="Login-Page">
 				<form 

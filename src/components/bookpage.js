@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getBookPage,deleteBook } from '../actions';
+import { getBookPage, deleteBook } from '../actions';
 import ReviewList from './reviewList';
 import StarRatingComponent from 'react-star-rating-component';
 
@@ -13,7 +13,6 @@ deleteBook = () => {
 		this.props.history.push('/protected');
 }
 	render() {
-		console.log('BOOK PAGE', this.props);
 		return (
 			<div className="Book">
 		<button className='Delete-Book' onClick={this.deleteBook}>Delete Book</button>
@@ -48,6 +47,8 @@ deleteBook = () => {
 
 				</div>
 				
+			
+				<button onClick={this.deleteBook}>Delete Book</button>
 			
 			</div>
 		);
