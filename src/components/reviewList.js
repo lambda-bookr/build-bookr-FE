@@ -23,14 +23,16 @@ class ReviewList extends React.Component {
 									review={review}
 									id={review.id}
 									rating={review.rating}
-									thumbnailUrl={review.thumbnailUrl}
+									thumbnailUrl={review.thumbnailUrl}	
 								/>
 								<StarRatingComponent 
-						name="rating"
-						starCount={5}
-						value={review.rating}
-						editing={false}
-					/>
+								className='Star-Rating'
+								 name="Rating"
+								 starCount={5}
+								 value={review.rating}		
+									/>
+						
+					
 								
 							</div>
 						);

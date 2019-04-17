@@ -16,7 +16,7 @@ const Review = (props) => {
             <p>{props.review.review}</p>
             </div>
 				
-                <button className='RatingsBtn'>{props.rating}</button>
+                {/* <button className='RatingsBtn'>{props.rating}</button> */}
 			</div>
 		
         

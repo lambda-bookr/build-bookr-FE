@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getBookPage } from '../actions';
 import ReviewList from './reviewList';
-import Rating from './rating'
 
 class BookPage extends React.Component {
 	componentDidMount() {
@@ -29,6 +28,7 @@ class BookPage extends React.Component {
 				
 				
 				<ReviewList className='Review-Page' match={this.props.match} reviewList={this.props.book.reviews}/>
+				
 				
 
 				</div>
