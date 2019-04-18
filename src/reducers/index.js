@@ -23,18 +23,16 @@ import {
 	ADD_REVIEW_START,
 	ADD_REVIEW_SUCCESS,
 	ADD_REVIEW_FAILURE,
-	//delete review
-	DELETE_REVIEW_START,
-	DELETE_REVIEW_SUCCESSFUL,
-	DELETE_REVIEW_FAILURE,
-	//update review
-	UPDATE_REVIEW_START,
-	UPDATE_REVIEW_SUCCESS,
-	UPDATE_REVIEW_FAILURE,
+	
 	//delete book
 	DELETE_BOOK_START,
 	DELETE_BOOK_SUCCESS,
 	DELETE_BOOK_FAILURE,
+	//update book
+	UPDATE_BOOK_START,
+	UPDATE_BOOK_SUCCESS,
+	UPDATE_BOOK_FAILURE,
+	//get book
 	FETCH_BOOK_START,
 	FETCH_BOOK_SUCCESS,
 	FETCH_BOOK_FAILURE
@@ -147,6 +145,50 @@ const reducer = (state = initialstate, action) => {
 				isfetching: false,
 				err: action.payload
 			};
+		
+
+
+
+
+
+			case UPDATE_BOOK_START:
+			return {
+				...state,
+				isfetching: true,
+				error: ''
+			};
+		case UPDATE_BOOK_SUCCESS:
+			return {
+				...state,
+				isfetching: false,
+				books: state.books.filter((book) => {
+					return book.id !== action.payload;
+				}),
+				error: ''
+			};
+		case UPDATE_BOOK_FAILURE:
+			return {
+				...state,
+				isfetching: false,
+				err: action.payload
+			};
+			
+		case DELETE_BOOK_SUCCESS:
+			return {
+				...state,
+				isfetching: false,
+				books: state.books.filter((book) => {
+					return book.id !== action.payload;
+				}),
+				error: ''
+			};
+		case DELETE_BOOK_FAILURE:
+			return {
+				...state,
+				isfetching: false,
+				err: action.payload
+			};
+
 
 		// Register reducers
 		case REGISTER_FETCHING:

@@ -44,7 +44,10 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 export const FETCH_BOOK_START = 'FETCH_BOOK_START';
 export const FETCH_BOOK_SUCCESS = 'FETCH_BOOK_SUCCESS';
 export const FETCH_BOOK_FAILURE = 'FETCH_BOOK_FAILURE';
-
+//update book
+export const UPDATE_BOOK_START = 'UPDATE_BOOK_START'
+export const UPDATE_BOOK_SUCCESS = 'UPDATE_BOOK_SUCCESS'
+export const UPDATE_BOOK_FAILURE = 'UPDATE_BOOK_FAILURE'
 //ACTION METHODS
 
 // LOGIN/Registration actions
@@ -148,6 +151,25 @@ export const deleteBook = (id) => (dispatch) => {
 		.catch((err) => {
 			dispatch({
 				type: DELETE_BOOK_FAILURE,
+				payload: err.message
+			});
+		});
+};
+
+export const updateBook = (id,poop) => (dispatch) => {
+	dispatch({ type: UPDATE_BOOK_START });
+	axios
+		.put(`https://bookr-backend.herokuapp.com/api/books/${id}`,poop)
+		.then((res) => {
+			console.log('UPDATED BOOK', res);
+			dispatch({
+				type: UPDATE_BOOK_SUCCESS,
+				payload: res.data
+			});
+		})
+		.catch((err) => {
+			dispatch({
+				type: UPDATE_BOOK_FAILURE,
 				payload: err.message
 			});
 		});
