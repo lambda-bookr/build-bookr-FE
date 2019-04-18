@@ -23,7 +23,7 @@ import {
 	ADD_REVIEW_START,
 	ADD_REVIEW_SUCCESS,
 	ADD_REVIEW_FAILURE,
-	
+
 	//delete book
 	DELETE_BOOK_START,
 	DELETE_BOOK_SUCCESS,
@@ -35,7 +35,7 @@ import {
 	//get book
 	FETCH_BOOK_START,
 	FETCH_BOOK_SUCCESS,
-	FETCH_BOOK_FAILURE,
+	FETCH_BOOK_FAILURE
 	// UPDATE_BOOK_START,
 	// UPDATE_BOOK_SUCCESS,
 	// UPDATE_BOOK_FAILURE,
@@ -100,26 +100,26 @@ const reducer = (state = initialstate, action) => {
 			return {
 				...state,
 				err: '',
-				isfetching: false,
+				fetchingBooks: false,
 				books: [ ...action.payload ]
 			};
 		case FETCH_BOOKS_FAILURE: {
 			return {
 				...state,
 				err: action.payload,
-				isfetching: false
+				fetchingBooks: false
 			};
 		}
 		case FETCH_BOOK_START:
 			return {
 				...state,
 				err: '',
-				fetchingBooks: true
+				isfetching: true
 			};
 		case FETCH_BOOK_SUCCESS:
 			return {
 				...state,
-				err: '',
+				err: null,
 				isfetching: false,
 				book: { ...action.payload }
 			};
@@ -151,13 +151,8 @@ const reducer = (state = initialstate, action) => {
 				isfetching: false,
 				err: action.payload
 			};
-		
 
-
-
-
-
-			case UPDATE_BOOK_START:
+		case UPDATE_BOOK_START:
 			return {
 				...state,
 				isfetching: true,
@@ -167,7 +162,7 @@ const reducer = (state = initialstate, action) => {
 			return {
 				...state,
 				isfetching: false,
-				book:{...action.payload},
+				book: { ...action.payload },
 				error: ''
 			};
 		case UPDATE_BOOK_FAILURE:
@@ -176,9 +171,6 @@ const reducer = (state = initialstate, action) => {
 				isfetching: false,
 				err: action.payload
 			};
-			
-	
-
 
 		/// UPDATE BOOK
 		case UPDATE_BOOK_START:
