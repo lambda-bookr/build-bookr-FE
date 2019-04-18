@@ -7,13 +7,13 @@ class UpdateBook extends Component {
 		super(props);
 		this.state = {
 			updatedBook: {
-				title: '',
+				title: this.props.book.title,
 				user_id: localStorage.getItem('userID'),
-				author: '',
-				price: '',
-				publisher: '',
-				description: '',
-				imageUrl: ''
+				author: this.props.book.author,
+				price: this.props.book.price,
+				publisher: this.props.book.publisher,
+				description: this.props.book.description,
+				imageUrl: this.props.book.imageUrl
 			}
 		};
 	}
@@ -46,7 +46,7 @@ class UpdateBook extends Component {
 	};
 
 	render() {
-		// console.log('BOOK UPDATE', this.props);
+		console.log('BOOK UPDATE', this.props);
 		return (
 			<div>
 				<form onSubmit={this.submitUpdatedBook}>
@@ -56,6 +56,7 @@ class UpdateBook extends Component {
 						value={this.state.updatedBook.title}
 						onChange={this.handleInputChange}
 						placeholder="Title"
+						required
 					/>
 					<input
 						type="text"
@@ -63,6 +64,7 @@ class UpdateBook extends Component {
 						value={this.state.updatedBook.author}
 						onChange={this.handleInputChange}
 						placeholder="Author"
+						required
 					/>
 					<input
 						type="text"
@@ -70,6 +72,7 @@ class UpdateBook extends Component {
 						value={this.state.updatedBook.price}
 						onChange={this.handleInputChange}
 						placeholder="price"
+						required
 					/>
 					<input
 						type="text"
@@ -77,6 +80,7 @@ class UpdateBook extends Component {
 						value={this.state.updatedBook.publisher}
 						onChange={this.handleInputChange}
 						placeholder="publisher"
+						required
 					/>
 					<input
 						type="text"
@@ -84,6 +88,7 @@ class UpdateBook extends Component {
 						value={this.state.updatedBook.description}
 						onChange={this.handleInputChange}
 						placeholder="description"
+						required
 					/>
 					<input
 						type="text"
@@ -91,6 +96,7 @@ class UpdateBook extends Component {
 						value={this.state.updatedBook.imageUrl}
 						onChange={this.handleInputChange}
 						placeholder="imageUrl"
+						required
 					/>
 					<button>Submit</button>
 				</form>
