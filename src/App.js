@@ -11,8 +11,6 @@ import Login from './components/loginRegister/login';
 import ReviewForm from './components/reviewForm';
 import BookUpdateForm from './components/bookUpdateForm';
 import { tokenExist, logOut } from './actions';
-import MenuButton from './components/MenuButton';
-
 
 class App extends Component {
 	logOut = (e) => {
@@ -58,12 +56,10 @@ class App extends Component {
 					render={(props) => (this.props.loggingIn ? <Redirect to="/protected" /> : <Login {...props} />)}
 				/>
 				<Route path="/register" component={Register} />
+				<PrivateRoute exact path="/" component={BookList} />
 				<PrivateRoute exact path="/protected" component={BookList} />
-				<PrivateRoute  path="/protected/:id" component={BookPage} />
-				<PrivateRoute  exact path="/" component={BookList} />
+				<PrivateRoute exact path="/protected/:id" component={BookPage} />
 				<Route path="/protected/:id/reviewform" component={ReviewForm} />
-				<Route path="/protected/:id/bookform" component={BookUpdateForm} />
-				
 				<Footer />
 			</div>
 		);
