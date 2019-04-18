@@ -95,9 +95,10 @@ class BookPage extends React.Component {
             </Button>
           </DialogActions>
         </Dialog>
+				<MenuButton/>
 		{/* delete book end */}
 
-		<MenuButton/>
+		
 	
 		<div>
 
