@@ -35,7 +35,13 @@ import {
 	//get book
 	FETCH_BOOK_START,
 	FETCH_BOOK_SUCCESS,
-	FETCH_BOOK_FAILURE
+	FETCH_BOOK_FAILURE,
+	// UPDATE_BOOK_START,
+	// UPDATE_BOOK_SUCCESS,
+	// UPDATE_BOOK_FAILURE,
+	// DELETE_BOOK_START,
+	// DELETE_BOOK_SUCCESS,
+	// DELETE_BOOK_FAILURE
 } from '../actions';
 
 const initialstate = {
@@ -174,6 +180,27 @@ const reducer = (state = initialstate, action) => {
 	
 
 
+		/// UPDATE BOOK
+		case UPDATE_BOOK_START:
+			return {
+				...state,
+				isfetching: true,
+				error: ''
+			};
+		case UPDATE_BOOK_SUCCESS:
+			return {
+				...state,
+				isfetching: false,
+				book: { ...action.payload },
+				error: ''
+			};
+		case UPDATE_BOOK_FAILURE:
+			return {
+				...state,
+				isfetching: false,
+				err: action.payload
+			};
+
 		// Register reducers
 		case REGISTER_FETCHING:
 			return {
@@ -239,47 +266,6 @@ const reducer = (state = initialstate, action) => {
 				isfetching: false,
 				err: action.payload
 			};
-		// case UPDATE_REVIEW_START:
-		// 	return {
-		// 		...state,
-		// 		isfetching: true,
-		// 		error: ''
-		// 	};
-		// case UPDATE_REVIEW_SUCCESS:
-		// 	return {
-		// 		...state,
-		// 		isfetching: false,
-		// 		reviews: [ ...state.reviews, { ...action.payload } ],
-		// 		error: ''
-		// 	};
-		// case UPDATE_REVIEW_FAILURE:
-		// 	return {
-		// 		...state,
-		// 		isfetching: false,
-		// 		err: action.payload
-		// 	};
-		// case DELETE_REVIEW_START:
-		// 	return {
-		// 		...state,
-		// 		loggingIn: false,
-		// 		isfetching: true,
-		// 		error: ''
-		// 	};
-		// case DELETE_REVIEW_SUCCESSFUL:
-		// 	return {
-		// 		...state,
-		// 		loggingIn: true,
-		// 		isfetching: false,
-		// 		error: ''
-		// 	};
-		// case DELETE_REVIEW_FAILURE:
-		// 	return {
-		// 		...state,
-		// 		loggingIn: false,
-		// 		isfetching: false,
-		// 		err: action.payload
-		// 	};
-
 		default:
 			return state;
 	}

@@ -156,11 +156,11 @@ export const deleteBook = (id) => (dispatch) => {
 		});
 };
 
-export const updateBook = (id,poop) => (dispatch) => {
+export const updateBook = (id,bookUpdate) => (dispatch) => {
 	// debugger;
 	dispatch({ type: UPDATE_BOOK_START });
 	axios
-		.put(`https://bookr-backend.herokuapp.com/api/books/${id}`,poop)
+		.put(`https://bookr-backend.herokuapp.com/api/books/${id}`,bookUpdate)
 		.then((res) => {
 			console.log('UPDATED BOOK', res);
 			dispatch({
@@ -175,6 +175,10 @@ export const updateBook = (id,poop) => (dispatch) => {
 			});
 		});
 };
+
+// REVIEW (s) actions
+
+
 
 // REVIEW (s) actions
 
@@ -197,59 +201,3 @@ export const addReview = (newReview) => (dispatch) => {
 			});
 		});
 };
-export const updateReview = (updatedReview, id) => (dispatch) => {
-	dispatch({ type: UPDATE_REVIEW_START });
-	axios
-		.get(`https://bookr-backend.herokuapp.com/api/reviews/${id}`, updatedReview)
-		.then((res) => {
-			console.log('UPDATE REVIEW LOG', res);
-			dispatch({
-				type: UPDATE_REVIEW_SUCCESS,
-				payload: res.data
-			});
-		})
-		.catch((err) => {
-			dispatch({
-				type: UPDATE_REVIEW_FAILURE,
-				payload: err.message
-			});
-		});
-};
-
-// export const getReviews = (id) => (dispatch) => {
-// 	dispatch({ type: FETCH_REVIEWS_START });
-// 	axios
-// 		.get(`https://bookr-backend.herokuapp.com/api/books/${id}/reviews`)
-// 		.then((res) => {
-// 			console.log('GET REVIEW LOG', res);
-// 			dispatch({
-// 				type: FETCH_REVIEWS_SUCCESS,
-// 				payload: res.data
-// 			});
-// 		})
-// 		.catch((err) => {
-// 			dispatch({
-// 				type: FETCH_REVIEWS_FAILURE,
-// 				payload: err.message
-// 			});
-// 		});
-// };
-
-// export const deleteReview = (id) => (dispatch) => {
-// 	dispatch({ type: DELETE_REVIEW_START });
-// 	axios
-// 		.get(`https://bookr-backend.herokuapp.com/api/reviews/${id}`)
-// 		.then((res) => {
-// 			console.log('DELETE REVIEW LOG', res);
-// 			dispatch({
-// 				type: DELETE_REVIEW_SUCCESSFUL,
-// 				payload: res.data
-// 			});
-// 		})
-// 		.catch((err) => {
-// 			dispatch({
-// 				type: DELETE_REVIEW_FAILURE,
-// 				payload: err.message
-// 			});
-// 		});
-// };
