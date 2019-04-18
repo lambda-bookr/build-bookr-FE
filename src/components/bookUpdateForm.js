@@ -29,7 +29,7 @@ class UpdateBook extends Component {
 
 	submitUpdatedBook = (e) => {
 		e.preventDefault();
-		debugger;
+
 		this.props.updateBook(this.props.book.id, this.state.updatedBook);
 
 		this.setState({
