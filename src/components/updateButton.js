@@ -26,9 +26,7 @@ class updateButton extends React.Component {
 		};
 	}
 	componentDidUpdate(prevProps) {
-		console.log('CDU', this.props.book, this.state);
 		if (prevProps.isfetching && !this.props.isfetching && !this.props.error) {
-			// console.log('HELOO', this.props.error);
 			this.setState({
 				...this.state,
 				updateBook: {
@@ -43,7 +41,6 @@ class updateButton extends React.Component {
 				}
 			});
 		}
-		console.log('CDU 2', this.state);
 	}
 
 	updateBook = () => {
@@ -69,7 +66,6 @@ class updateButton extends React.Component {
 		this.setState({ open: false });
 	};
 	render() {
-		console.log('HELOO', this.props.error, this.props.isfetching);
 		return (
 			<div>
 				<Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
