@@ -223,8 +223,10 @@ h3 {
 	align-items: center;
 	flex-direction: column;
 	/* margin: 10px; */
-	height: 600px;
+	height: 550px;
 	width:350px;
+	
+	margin-top:15px;
 }
 
 .Book {
@@ -232,7 +234,8 @@ h3 {
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-	margin: 10px 10px 10px 10px;
+	justify-content: space-evenly;
+	margin: 10px 10px 20px 10px;
 	width: 1200px;
 
 	border: 2px solid darkslategray;
@@ -261,7 +264,10 @@ h3 {
 	/* justify-content:center; */
 	align-items: center;
 	flex-direction: column;
-	height: 400px;
+	height: 800px;
+}
+.BookTitle{
+	
 }
 .Book-Flex {
 	display: flex;

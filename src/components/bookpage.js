@@ -68,7 +68,7 @@ class BookPage extends React.Component {
 		return (
 			//delete book 
 			<div className="Book">
-			
+			<div className="Update-Delete">
 			<Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
           Delete Book
         </Button>
@@ -189,6 +189,8 @@ class BookPage extends React.Component {
           </DialogActions>
         </Dialog>
 		
+			</div>
+			
 				<h3 className="BookTitle">{this.props.book.title}</h3>
 				<img src={this.props.book.imageUrl} alt="Book" />
 				<ul className="BookInfo">
