@@ -9,26 +9,25 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
-import MenuButton from './MenuButton'
-import { Link} from 'react-router-dom';
+import UpdateButton from './updateButton';
+import { Link } from 'react-router-dom';
 
 class BookPage extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state= {
-			open:false,
-			updateBook:{
-			title:'',
-			author:'',
-			price:'',
-			publisher:'',
-			description:'',
-			imageUrl:'',
-			user_id:localStorage.getItem('userID')
+		this.state = {
+			open: false,
+			updateBook: {
+				title: '',
+				author: '',
+				price: '',
+				publisher: '',
+				description: '',
+				imageUrl: '',
+				user_id: localStorage.getItem('userID')
 			}
-			
-		}
-	};
+		};
+	}
 
 	componentDidMount() {
 		if (Number(this.props.match.params.id) !== this.props.book.id) {
@@ -43,67 +42,63 @@ class BookPage extends React.Component {
 		this.props.updateBook(this.props.book.id, this.state.updateBook);
 		this.props.history.push(`/protected/${this.props.match.params.id}`);
 	};
-	handleTextFieldChange=(e)=> {
-	
-        this.setState({
+	handleTextFieldChange = (e) => {
+		this.setState({
 			updateBook: {
-                ...this.state.updateBook,
-                [e.target.name]: e.target.value
-            },
-        });
-    };
+				...this.state.updateBook,
+				[e.target.name]: e.target.value
+			}
+		});
+	};
 
 	handleClickOpen = () => {
-	
-		this.setState({ open: true
-	
-		 });
-	  };
-	
-	  handleClose = () => {
+		this.setState({
+			open: true
+		});
+	};
+
+	handleClose = () => {
 		this.setState({ open: false });
-	  };
+	};
 
 	render() {
-		console.log('look at me',this.props.match)
-		console.log(this.props.match.url)
+		console.log('look at me', this.props.match);
+		console.log(this.props.match.url);
 		return (
-			//delete book 
+			//delete book
 			<div className="Book">
-			<div className="Update-Delete">
-			<Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-          Delete Book
-        </Button>
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle id="alert-dialog-title">{"Delete Book?"}</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-             Do you really want to delete this book?
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Cancel
-            </Button>
-            <Button onClick={this.deleteBook} color="primary" autoFocus>
-              Delete
-            </Button>
-          </DialogActions>
-        </Dialog>
-		{/* delete book end */}
+				<div className="Update-Delete">
+					<Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
+						Delete Book
+					</Button>
+					<Dialog
+						open={this.state.open}
+						onClose={this.handleClose}
+						aria-labelledby="alert-dialog-title"
+						aria-describedby="alert-dialog-description"
+					>
+						<DialogTitle id="alert-dialog-title">{'Delete Book?'}</DialogTitle>
+						<DialogContent>
+							<DialogContentText id="alert-dialog-description">
+								Do you really want to delete this book?
+							</DialogContentText>
+						</DialogContent>
+						<DialogActions>
+							<Button onClick={this.handleClose} color="primary">
+								Cancel
+							</Button>
+							<Button onClick={this.deleteBook} color="primary" autoFocus>
+								Delete
+							</Button>
+						</DialogActions>
+					</Dialog>
+					{/* delete book end */}
 
-		<MenuButton/>
-	
-		<div>
+					<UpdateButton />
 
-		</div>
-			</div>
-			
+					<div />
+				</div>
+
 				<h3 className="BookTitle">{this.props.book.title}</h3>
 				<img src={this.props.book.imageUrl} alt="Book" />
 				<ul className="BookInfo">
@@ -111,8 +106,8 @@ class BookPage extends React.Component {
 					<li>Price: $ {this.props.book.price}</li>
 					<li>Publisher:{this.props.book.publisher}</li>
 					<li>Synopsis:{this.props.book.description}</li>
-					
-				    {/* average review score */}
+
+					{/* average review score */}
 					<StarRatingComponent
 						className="Agg-Rating"
 						name="rating"
@@ -125,7 +120,6 @@ class BookPage extends React.Component {
 				<div className="Review-Wrapper">
 					<ReviewList className="Review-Page" match={this.props.match} reviewList={this.props.book.reviews} />
 				</div>
-				
 			</div>
 		);
 	}
@@ -136,6 +130,4 @@ const mapStateToProps = ({ book, isfetching }) => ({
 	isfetching
 });
 
-export default connect(mapStateToProps, { getBookPage, deleteBook,updateBook })(BookPage);
-
-
+export default connect(mapStateToProps, { getBookPage, deleteBook, updateBook })(BookPage);
