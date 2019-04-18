@@ -59,7 +59,8 @@ class App extends Component {
 				/>
 				<Route path="/register" component={Register} />
 				<PrivateRoute exact path="/protected" component={BookList} />
-				<PrivateRoute exact path="/protected/:id" component={BookPage} />
+				<PrivateRoute  path="/protected/:id" component={BookPage} />
+				<PrivateRoute  exact path="/" component={BookList} />
 				<Route path="/protected/:id/reviewform" component={ReviewForm} />
 				<Route path="/protected/:id/bookform" component={BookUpdateForm} />
 				
