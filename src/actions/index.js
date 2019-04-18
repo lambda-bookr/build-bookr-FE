@@ -157,6 +157,7 @@ export const deleteBook = (id) => (dispatch) => {
 };
 
 export const updateBook = (id,poop) => (dispatch) => {
+	// debugger;
 	dispatch({ type: UPDATE_BOOK_START });
 	axios
 		.put(`https://bookr-backend.herokuapp.com/api/books/${id}`,poop)

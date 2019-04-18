@@ -161,9 +161,7 @@ const reducer = (state = initialstate, action) => {
 			return {
 				...state,
 				isfetching: false,
-				books: state.books.filter((book) => {
-					return book.id !== action.payload;
-				}),
+				book:{...action.payload},
 				error: ''
 			};
 		case UPDATE_BOOK_FAILURE:
@@ -173,21 +171,7 @@ const reducer = (state = initialstate, action) => {
 				err: action.payload
 			};
 			
-		case DELETE_BOOK_SUCCESS:
-			return {
-				...state,
-				isfetching: false,
-				books: state.books.filter((book) => {
-					return book.id !== action.payload;
-				}),
-				error: ''
-			};
-		case DELETE_BOOK_FAILURE:
-			return {
-				...state,
-				isfetching: false,
-				err: action.payload
-			};
+	
 
 
 		// Register reducers

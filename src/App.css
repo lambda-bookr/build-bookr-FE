@@ -216,21 +216,17 @@ h3 {
 	border: 2px solid darkslategray;
 	border-radius: 5px;
 	color: black;
-	background: linear-gradient(
-		0deg,
-		rgba(211, 211, 211, 1) 0%,
-		rgba(211, 211, 211, 1) 68%,
-		rgba(245, 252, 255, 1) 69%,
-		rgba(245, 252, 255, 1) 100%
-	);
+	background-image: linear-gradient(to left bottom, #ba51c7, #bc3ca4, #b62982, #ab1a63, #9c1147);
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	margin: 10px;
+	/* margin: 10px; */
 	height: 600px;
+	width:350px;
 }
+
 .Book {
 	display: flex;
 	justify-content: center;
