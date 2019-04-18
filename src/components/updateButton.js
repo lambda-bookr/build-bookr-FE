@@ -53,7 +53,7 @@ class updateButton extends React.Component {
 		console.log('warnin', this.props.book.id);
 		return (
 			<div>
-				<Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
+				<Button className='Modal-Btn' variant="outlined" color="primary" onClick={this.handleClickOpen}>
 					Update Book
 				</Button>
 				<Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">

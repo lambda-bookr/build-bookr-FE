@@ -23,9 +23,12 @@ class ReviewList extends React.Component {
 							/>
 						);
 					})}
-				<Link className="Link" to={`${this.props.match.url}/reviewform`}>
+					<div className='Review-Button'>
+					<Link className="Link" to={`${this.props.match.url}/reviewform`}>
 					Add Review
 				</Link>
+					</div>
+				
 				<div />
 			</div>
 		);

@@ -16,10 +16,6 @@
 	padding-bottom: 90px;
 }
 
-.Book-Image {
-	width: 55px;
-	height: 55px;
-}
 
 .Review-Text {
 	width: 600px;
@@ -58,12 +54,17 @@ h4 {
 	max-width: 80px;
 	margin-left: 60px;
 }
-
+.spacer{
+	height:200px;
+	
+}
 .Login-Page {
 	background-image: url(images/facebook_cover_photo_2.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	padding-top:500px;
+	height:400px;
 
 	padding-bottom: 300px;
 	padding-top: 30px;
@@ -73,17 +74,20 @@ h4 {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	height: 200px;
-
-	width: 300px;
-	margin-left: 450px;
-	margin-top: 50px;
+	height: 300px;
+margin:0 auto;
+text-align:center;
+	width: 270px;
+	margin-top:50px;
+	
 	background-color: black;
-	border-radius: 8px;
-	padding-bottom: 100px;
-	padding-top: 20px;
-	padding-right: 45px;
-	padding-left: 40px;
+
+	
+}
+.Review-Field{
+	width:400px;
+	height:200px;
+	text-align:start;
 }
 .Agg-Rating {
 	font-size: 35px;
@@ -95,30 +99,32 @@ h4 {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	height: 200px;
-	border: 2px solid darkslategray;
+	
 	width: 500px;
-	margin-left: 400px;
-	margin-top: 20px;
+	
 	background-color: whitesmoke;
 	opacity: .8;
 	border-radius: 8px;
 	padding-bottom: 200px;
 	padding-top: 70px;
 
-	margin-bottom: 45px;
+	margin:0 auto;
 }
-.Book-Image {
-	width:300px;
-}
+
 .Cover-Image{
 	width:100%;
 }
+
 .Register-Wrapper {
 	background: #d9c9ae;
-	padding-bottom: 50px;
-	padding-top: 50px;
+	padding-bottom:600px;
 	background-image: url("https://images.unsplash.com/photo-1532153955177-f59af40d6472?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80");
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 0 auto;
+	text-align: center;
+	margin-top:20px;
+
 }
 input {
 	margin: 9px;
@@ -181,6 +187,7 @@ h3 {
 .nav-link a.active {
 	text-shadow: 2px 1px forestgreen;
 	background:darkseagreen;
+	border:2px solid yellow;
 	
 }
 .nav-link a{
@@ -216,23 +223,54 @@ h3 {
 	border: 2px solid darkslategray;
 	border-radius: 5px;
 	color: black;
-	background-image: linear-gradient(to left bottom, #ba51c7, #bc3ca4, #b62982, #ab1a63, #9c1147);
+	background: linear-gradient(
+		0deg,
+		rgba(211, 211, 211, 1) 0%,
+		rgba(211, 211, 211, 1) 68%,
+		rgba(245, 252, 255, 1) 69%,
+		rgba(245, 252, 255, 1) 100%);
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	/* margin: 10px; */
-	height: 550px;
+	height: 800px;
 	width:350px;
 	
 	margin-top:15px;
 }
 .Update-Delete{
 	display:flex;
-	border:2px solid red;
-}
+	width:800px;
+	justify-content: flex-end;
+	margin-top:10px;
+	flex-direction:column;
+	align-items: center;
 
+	
+
+}
+.Review-Button{
+margin-top:20px;
+margin-left:10px;
+}
+.Book-Image {
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+.Delete-Button{
+	margin-bottom:20px;
+
+}
+.Cover-Image {
+    width: 41%;
+} 
+.Modal-Btn{
+	margin:15px;
+	border:5px solid purple;
+}
 .Book {
 	display: flex;
 	justify-content: center;
@@ -241,7 +279,6 @@ h3 {
 	justify-content: space-evenly;
 	margin: 10px 10px 20px 10px;
 	width: 1200px;
-
 	border: 2px solid darkslategray;
 	border-radius: 5px;
 	background: linear-gradient(
@@ -268,9 +305,11 @@ h3 {
 	/* justify-content:center; */
 	align-items: center;
 	flex-direction: column;
-	height: 800px;
+	height: 700px;
 }
-.BookTitle{
+.book-link{
+	
+	margin:0 auto;
 	
 }
 .Book-Flex {
@@ -279,9 +318,12 @@ h3 {
 	align-items: center;
 	flex-wrap: wrap;
 	background: #d9c9ae;
-	margin: 20px;
+	margin:0 auto;
 	padding-top: 40px;
 	border-radius: 5px;
+	width:1240px;
+	max-width:1240px;
+	
 }
 
 .book-list {
