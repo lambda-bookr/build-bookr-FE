@@ -9,6 +9,7 @@ import BookList from './components/bookList';
 import PrivateRoute from './components/privateRoute';
 import Login from './components/loginRegister/login';
 import ReviewForm from './components/reviewForm';
+import BookUpdateForm from './components/bookUpdateForm';
 import { tokenExist, logOut } from './actions';
 
 class App extends Component {
@@ -58,6 +59,7 @@ class App extends Component {
 				<PrivateRoute exact path="/protected" component={BookList} />
 				<PrivateRoute exact path="/protected/:id" component={BookPage} />
 				<Route path="/protected/:id/reviewform" component={ReviewForm} />
+				<Route path="/protected/:id/bookform" component={BookUpdateForm} />
 				<Footer />
 			</div>
 		);

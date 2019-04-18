@@ -5,7 +5,9 @@ const Book = (props) => {
 		<div className="Books">
 			<div className="Book-Top">
 				<h3 className="BookTitle">{props.name}</h3>
-				<img src={props.imageUrl} alt="Book Cover" />
+				<div className="Book-Image">
+					<img className="Cover-Image" src={props.imageUrl} alt="Book Cover" />
+				</div>
 			</div>
 			<ul className="BookInfo">
 				<li>Author: {props.author}</li>

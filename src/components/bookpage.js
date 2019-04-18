@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getBookPage, deleteBook } from '../actions';
 import ReviewList from './reviewList';
 import StarRatingComponent from 'react-star-rating-component';
@@ -36,11 +37,17 @@ class BookPage extends React.Component {
 	};
 
 	render() {
+		console.log('Book PAge', this.props);
 		return (
 			<div className="Book">
 				<Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
 					Delete Book
 				</Button>
+
+				<Link className="Link" to={`${this.props.match.url}/bookform`}>
+					Update Book
+				</Link>
+
 				<Dialog
 					open={this.state.open}
 					onClose={this.handleClose}
@@ -69,7 +76,7 @@ class BookPage extends React.Component {
 					<li>Price: $ {this.props.book.price}</li>
 					<li>Publisher:{this.props.book.publisher}</li>
 					<li>Synopsis:{this.props.book.description}</li>
-					{/* <li>Rating:{this.props.book.rating}</li> */}
+
 					<StarRatingComponent
 						className="Agg-Rating"
 						name="rating"

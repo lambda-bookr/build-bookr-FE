@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addReview } from '../actions';
 import StarRatingComponent from 'react-star-rating-component';
+
 class ReviewForm extends Component {
 	constructor(props) {
 		super(props);
@@ -15,6 +16,7 @@ class ReviewForm extends Component {
 	onStarClick(nextValue, prevValue, name) {
 		this.setState({ rating: nextValue });
 	}
+
 	handleInputChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
@@ -43,14 +45,7 @@ class ReviewForm extends Component {
 						name="review"
 						required
 					/>
-					{/* <input
-						onChange={this.handleInputChange}
-						placeholder="rating"
-						type="number"
-						value={this.state.rating}
-						name="rating"
-						required
-					/> */}
+
 					<StarRatingComponent
 						onStarClick={this.onStarClick.bind(this)}
 						className="Star-Rating"
