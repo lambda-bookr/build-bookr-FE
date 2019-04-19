@@ -108,13 +108,6 @@ text-align:center;
 	padding-bottom: 200px;
 	padding-top: 70px;
 
-<<<<<<< HEAD
-	margin:0 auto;
-}
-
-.Cover-Image{
-	width:100%;
-=======
 	margin-bottom: 45px;
 }
 .Book-Image {
@@ -124,7 +117,6 @@ text-align:center;
 }
 .Cover-Image {
 	width: 41%;
->>>>>>> 214a8da9818c40c545914a02a10741f94ff093b7
 }
 
 .Register-Wrapper {
@@ -196,13 +188,9 @@ h3 {
 }
 .nav-link a.active {
 	text-shadow: 2px 1px forestgreen;
-<<<<<<< HEAD
 	background:darkseagreen;
 	border:2px solid yellow;
 	
-=======
-	background: darkseagreen;
->>>>>>> 214a8da9818c40c545914a02a10741f94ff093b7
 }
 .nav-link a {
 	text-decoration: none;
@@ -248,17 +236,10 @@ h3 {
 	align-items: center;
 	flex-direction: column;
 	/* margin: 10px; */
-<<<<<<< HEAD
 	height: 800px;
 	width:350px;
 	
 	margin-top:15px;
-=======
-	height: 550px;
-	width: 350px;
-
-	margin-top: 15px;
->>>>>>> 214a8da9818c40c545914a02a10741f94ff093b7
 }
 .Update-Delete{
 	display:flex;
@@ -327,14 +308,10 @@ margin-left:10px;
 	flex-direction: column;
 	height: 700px;
 }
-<<<<<<< HEAD
 .book-link{
 	
 	margin:0 auto;
 	
-=======
-.BookTitle {
->>>>>>> 214a8da9818c40c545914a02a10741f94ff093b7
 }
 .Book-Flex {
 	display: flex;
