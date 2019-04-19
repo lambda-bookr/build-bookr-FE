@@ -109,10 +109,12 @@ h4 {
 	margin-bottom: 45px;
 }
 .Book-Image {
-	width:300px;
+	width: 450px;
+	margin: 0 auto;
+	text-align: center;
 }
-.Cover-Image{
-	width:100%;
+.Cover-Image {
+	width: 41%;
 }
 .Register-Wrapper {
 	background: #d9c9ae;
@@ -135,18 +137,18 @@ button {
 	font-size: 15px;
 	border: none;
 	cursor: pointer;
-	outline:none;
+	outline: none;
 }
-button:hover{
-	background:forestgreen;
-	outline:none;
+button:hover {
+	background: forestgreen;
+	outline: none;
 }
 button:active {
-    outline: none;
-    border: none;
+	outline: none;
+	border: none;
 }
-body{
-	background:whitesmoke;
+body {
+	background: whitesmoke;
 }
 h2 {
 	margin-right: 15px;
@@ -165,35 +167,31 @@ h3 {
 	background-image: url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1753&q=80");
 	height: 90px;
 	position: sticky;
-	top:0;
+	top: 0;
 	z-index: 1;
-	
 }
 .Link {
 	text-decoration: none;
-	color:whitesmoke;
-	background:#CD871B;
-	padding:5px 50px 5px 50px;
-	margin-top:25px;
-	border-radius:5px; 
-
+	color: whitesmoke;
+	background: #cd871b;
+	padding: 5px 50px 5px 50px;
+	margin-top: 25px;
+	border-radius: 5px;
 }
 .nav-link a.active {
 	text-shadow: 2px 1px forestgreen;
-	background:darkseagreen;
-	
+	background: darkseagreen;
 }
-.nav-link a{
-	text-decoration:none;
-	color:whitesmoke;
-	background:forestgreen;
-	padding:5px 25px 5px 25px;
-	border-radius:5px;
-	margin-right:10px;
+.nav-link a {
+	text-decoration: none;
+	color: whitesmoke;
+	background: forestgreen;
+	padding: 5px 25px 5px 25px;
+	border-radius: 5px;
+	margin-right: 10px;
 }
-.nav-link a:hover{
-	
-	background:#CD871B;
+.nav-link a:hover {
+	background: #cd871b;
 }
 /* .NavLink{
 	text-decoration:none;
@@ -202,14 +200,14 @@ h3 {
 	padding:5px 25px 5px 25px;
 	border-radius:5px;
 } */
-.NavLink .active{
+.NavLink .active {
 	box-shadow: 5px 10px;
 }
-.book-link{
-	text-decoration:none;
-	width:30%;
-	display:flex;
-	align-items:center;
+.book-link {
+	text-decoration: none;
+	width: 30%;
+	display: flex;
+	align-items: center;
 	justify-content: center;
 }
 .Books {
@@ -224,9 +222,9 @@ h3 {
 	flex-direction: column;
 	/* margin: 10px; */
 	height: 550px;
-	width:350px;
-	
-	margin-top:15px;
+	width: 350px;
+
+	margin-top: 15px;
 }
 
 .Book {
@@ -266,8 +264,7 @@ h3 {
 	flex-direction: column;
 	height: 800px;
 }
-.BookTitle{
-	
+.BookTitle {
 }
 .Book-Flex {
 	display: flex;
@@ -309,7 +306,6 @@ h1 {
 	margin-top: 45px;
 	padding: 10px 85px 10px 85px;
 }
-
 
 .displayNone {
 	display: none;

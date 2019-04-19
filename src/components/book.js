@@ -14,7 +14,6 @@ const Book = (props) => {
 				<li>Price: $ {props.price}</li>
 				<li>Publisher: {props.publisher}</li>
 				<li>Synopsis: {props.description}</li>
-				<li>User: {props.user_id}</li>
 			</ul>
 		</div>
 	);

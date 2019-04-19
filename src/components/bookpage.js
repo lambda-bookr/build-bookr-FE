@@ -62,8 +62,6 @@ class BookPage extends React.Component {
 	};
 
 	render() {
-		console.log('look at me', this.props.match);
-		console.log(this.props.match.url);
 		return (
 			//delete book
 			<div className="Book">
