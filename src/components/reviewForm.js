@@ -37,7 +37,7 @@ class ReviewForm extends Component {
 		return (
 			<div className="Review-Form-Wrapper">
 				<form onSubmit={this.submitNewReview}>
-					<input
+					<input className="Review-Field"
 						onChange={this.handleInputChange}
 						placeholder="review"
 						type="text"
