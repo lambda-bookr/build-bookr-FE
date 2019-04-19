@@ -21,7 +21,7 @@ class BookList extends React.Component {
 								author={book.author}
 								price={book.price}
 								publisher={book.publisher}
-								description={book.description}
+								// description={book.description}
 								key={book.id}
 							/>
 						</Link>
