@@ -259,7 +259,8 @@ margin-left:10px;
 .Book-Image {
     width: 600px;
     margin: 0 auto;
-    text-align: center;
+	text-align: center;
+	padding-bottom:100px;
 }
 .Delete-Button{
 	margin-bottom:20px;
@@ -270,14 +271,14 @@ margin-left:10px;
 } 
 .Modal-Btn{
 	margin:15px;
-	border:5px solid purple;
+	/* border:5px solid purple; */
 }
 .Book {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-evenly;
+	/* justify-content: space-evenly; */
 	margin: 10px 10px 20px 10px;
 	width: 1200px;
 	border: 2px solid darkslategray;
@@ -294,7 +295,7 @@ margin-left:10px;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-	margin: 10px 10px 10px 10px;
+	/* margin: 10px 10px 10px 10px; */
 	/* height:600px; */
 }
 .Delete-Book {
@@ -306,7 +307,7 @@ margin-left:10px;
 	/* justify-content:center; */
 	align-items: center;
 	flex-direction: column;
-	height: 700px;
+	/* height: 700px; */
 }
 .book-link{
 	
@@ -332,7 +333,7 @@ margin-left:10px;
 }
 .Book-Info {
 	display: flex;
-	justify-content: center;
+	/* justify-content: center; */
 	flex-direction: column;
 	margin: 10px 10px 10px 10px;
 }
