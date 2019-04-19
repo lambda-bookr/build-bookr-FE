@@ -16,14 +16,31 @@ class updateButton extends React.Component {
 			open: false,
 			updateBook: {
 				title: '',
+				user_id: localStorage.getItem('userID'),
 				author: '',
 				price: '',
 				publisher: '',
 				description: '',
-				imageUrl: '',
-				user_id: localStorage.getItem('userID')
+				imageUrl: ''
 			}
 		};
+	}
+	componentDidUpdate(prevProps) {
+		if (prevProps.isfetching && !this.props.isfetching && !this.props.error) {
+			this.setState({
+				...this.state,
+				updateBook: {
+					...this.state.updateBook,
+					title: this.props.book.title,
+
+					author: this.props.book.author,
+					price: this.props.book.price,
+					publisher: this.props.book.publisher,
+					description: this.props.book.description,
+					imageUrl: this.props.book.imageUrl
+				}
+			});
+		}
 	}
 
 	updateBook = () => {
@@ -49,8 +66,6 @@ class updateButton extends React.Component {
 		this.setState({ open: false });
 	};
 	render() {
-		console.log('Hello!!!!', this.props);
-		console.log('warnin', this.props.book.id);
 		return (
 			<div>
 				<Button className='Modal-Btn' variant="outlined" color="primary" onClick={this.handleClickOpen}>
@@ -143,8 +158,9 @@ class updateButton extends React.Component {
 		);
 	}
 }
-const mapStateToProps = ({ book, isfetching }) => ({
+const mapStateToProps = ({ book, isfetching, error }) => ({
 	book,
-	isfetching
+	isfetching,
+	error
 });
 export default connect(mapStateToProps, { getBookPage, updateBook })(updateButton);

@@ -14,7 +14,10 @@ const Book = (props) => {
 				<li>Price: $ {props.price}</li>
 				<li>Publisher: {props.publisher}</li>
 				<li>Synopsis: {props.description}</li>
+<<<<<<< HEAD
 				
+=======
+>>>>>>> 214a8da9818c40c545914a02a10741f94ff093b7
 			</ul>
 		</div>
 	);
